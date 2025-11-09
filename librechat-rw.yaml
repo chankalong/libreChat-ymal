@@ -46,6 +46,7 @@ endpoints:
           "openai/gpt-4.1",
           "openai/chatgpt-4o-latest",
           "---PERPLEXITY---",
+          "perplexity/sonar-pro-search",
           "perplexity/sonar-reasoning-pro",
           "perplexity/sonar-pro",
           "perplexity/sonar-reasoning",
@@ -55,7 +56,9 @@ endpoints:
           "x-ai/grok-3",
           "x-ai/grok-4",
           "x-ai/grok-4-fast",
-          "x-ai/grok-code-fast-1"
+          "x-ai/grok-code-fast-1",
+          "---DeepSeek---",
+          "deepseek/deepseek-v3.2-exp"
           ]
         fetch: false
       dropParams: ["stop"]
