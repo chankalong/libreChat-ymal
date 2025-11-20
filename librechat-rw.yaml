@@ -59,7 +59,7 @@ endpoints:
           "x-ai/grok-4",
           "x-ai/grok-4-fast",
           "x-ai/grok-code-fast-1",
-          "x-ai/grok-3","
+          "x-ai/grok-3",
           "---DeepSeek---",
           "deepseek/deepseek-v3.2-exp"
           ]
