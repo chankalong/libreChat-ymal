@@ -62,7 +62,7 @@ endpoints:
           "x-ai/grok-code-fast-1",
           "x-ai/grok-3",
           "---DeepSeek---",
-          "deepseek/deepseek-v3.2-exp"
+          "deepseek/deepseek-v3.2-speciale"
           ]
         fetch: false
       dropParams: ["stop"]
