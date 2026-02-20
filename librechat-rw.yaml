@@ -12,67 +12,75 @@ endpoints:
     # OpenRouter.ai
     # Model list: https://openrouter.ai/models
     # Script to fetch models: https://github.com/LibreChat-AI/librechat-config-yaml/blob/main/scripts/openrouter.py
-    - name: "OpenRouter"
+    - name: "最勁最貴最慢AI"
       apiKey: "${OPENROUTER_KEY}"
       baseURL: "https://openrouter.ai/api/v1"
       models:
         default: [
-          "---ANTHROPIC---",
-          "anthropic/claude-opus-4.6",
-          "anthropic/claude-sonnet-4.5",
-          "anthropic/claude-haiku-4.5",
-          "---GOOGLE---",
-          "google/gemini-3-pro-preview",
-          "google/gemini-3-flash-preview",
-          "google/gemini-2.5-pro",
-          "google/gemini-2.5-flash",
-          "google/gemini-2.5-flash-lite",
-          "google/gemini-2.5-flash-preview-09-2025",
-          "google/gemini-2.5-flash-lite-preview-09-2025",
-          "---META-LLAMA---",
-          "meta-llama/llama-4-maverick",
-          "meta-llama/llama-4-scout",
-          "---MICROSOFT---",
-          "microsoft/phi-4-reasoning-plus",
-          "microsoft/phi-4",
-          "---OPENAI---",
-          #"openai/gpt-5.2-pro",
+          "---真係好貴---",
+          "---真係好貴---",
+          "---真係好貴---",
+          "---諗清楚先好用---",
           "openai/gpt-5.2",
           "openai/gpt-5.2-chat",
-          "openai/gpt-5.1-codex-max",
-          "openai/gpt-5.1-codex",
-          "openai/gpt-5.1-codex-mini",
-          "openai/gpt-5-mini",
-          "openai/gpt-5-nano",
           "openai/o3-deep-research",
-          "openai/o4-mini-deep-research",
-          "openai/o4-mini-high",
-          "openai/gpt-4.1",
-          "openai/chatgpt-4o-latest",
-          "---PERPLEXITY---",
-          "perplexity/sonar-pro-search",
-          "perplexity/sonar-reasoning-pro",
-          "perplexity/sonar-pro",
-          "perplexity/sonar-reasoning",
-          "perplexity/sonar",
-          "perplexity/r1-1776",
-          "---Grok---",
-          "x-ai/grok-4.1-fast",
+          "anthropic/claude-opus-4.6",
+          "google/gemini-3.1-pro-preview",
           "x-ai/grok-4",
-          "x-ai/grok-4-fast",
-          "x-ai/grok-code-fast-1",
-          "x-ai/grok-3",
-          "---DeepSeek---",
-          "deepseek/deepseek-v3.2-speciale"
+          "perplexity/sonar-reasoning-pro",
+          "perplexity/sonar-pro-search"
           ]
         fetch: false
-      dropParams: ["stop"]
       titleConvo: true
-      #titleModel: "openai/chatgpt-4o-latest"
       summarize: false
-      #summaryModel: "openai/chatgpt-4o-latest"
-      forcePrompt: false
-      modelDisplayLabel: "OpenRouter"
+      modelDisplayLabel: "我係最勁最貴最慢嘅AI"
+    - name: "國產頂級AI"
+      apiKey: "${OPENROUTER_KEY}"
+      baseURL: "https://openrouter.ai/api/v1"
+      models:
+        default: [
+          "qwen/qwen3.5-397b-a17b",
+          "z-ai/glm-5",
+          "deepseek/deepseek-v3.2",
+          "moonshotai/kimi-k2.5"
+          ]
+        fetch: false
+      titleConvo: true
+      summarize: false
+      modelDisplayLabel: "我係國產頂級AI"
+    - name: "適合一般用途嘅AI"
+      apiKey: "${OPENROUTER_KEY}"
+      baseURL: "https://openrouter.ai/api/v1"
+      models:
+        default: [
+          "openai/gpt-5-mini",
+          "anthropic/claude-sonnet-4.6",
+          "google/gemini-3-flash-preview",
+          "x-ai/grok-4.1-fast",
+          "perplexity/sonar-pro",
+          "perplexity/sonar-reasoning",
+          "perplexity/r1-1776",
+          "minimax/minimax-m2.5"
+          ]
+        fetch: false
+      titleConvo: true
+      summarize: false
+      modelDisplayLabel: "我係適合一般用途嘅AI"
+    - name: "超平超快超廢"
+      apiKey: "${OPENROUTER_KEY}"
+      baseURL: "https://openrouter.ai/api/v1"
+      models:
+        default: [
+          "anthropic/claude-haiku-4.5",
+          "openai/gpt-5-nano",
+          "google/gemini-2.5-flash-lite",          
+          "z-ai/glm-4.7-flash",
+          "perplexity/sonar"
+          ]
+        fetch: false
+      titleConvo: true
+      summarize: false
+      modelDisplayLabel: "我係超平超快超廢嘅AI"
   azureOpenAI:
     # Endpoint-level configuration
     titleModel: "gpt-4.1-nano"
