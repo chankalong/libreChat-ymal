@@ -21,6 +21,7 @@ endpoints:
           "---真係好貴---",
           "---真係好貴---",
           "---諗清楚先好用---",
+          "openai/gpt-5.3-codex",
           "openai/gpt-5.2",
           "openai/gpt-5.2-chat",
           "openai/o3-deep-research",
@@ -60,7 +61,8 @@ endpoints:
           "perplexity/sonar-pro",
           "perplexity/sonar-reasoning",
           "perplexity/r1-1776",
-          "minimax/minimax-m2.5"
+          "minimax/minimax-m2.5",
+          "qwen/qwen3.5-27b"
           ]
         fetch: false
       titleConvo: true
@@ -75,6 +77,7 @@ endpoints:
           "openai/gpt-5-nano",
           "google/gemini-2.5-flash-lite",          
           "z-ai/glm-4.7-flash",
+          "qwen/qwen3.5-flash-02-23",
           "perplexity/sonar"
           ]
         fetch: false
