@@ -46,7 +46,8 @@ endpoints:
           "z-ai/glm-5-turbo",
           "z-ai/glm-5",
           "deepseek/deepseek-v3.2",
-          "moonshotai/kimi-k2.5"
+          "moonshotai/kimi-k2.5",
+          "xiaomi/mimo-v2-pro"
           ]
         fetch: false
       titleConvo: true
@@ -64,8 +65,9 @@ endpoints:
           "perplexity/sonar-pro",
           "perplexity/sonar-reasoning",
           "perplexity/r1-1776",
-          "minimax/minimax-m2.5",
-          "qwen/qwen3.5-27b"
+          "minimax/minimax-m2.7",
+          "qwen/qwen3.5-27b",
+          "xiaomi/mimo-v2-omni"
           ]
         fetch: false
       titleConvo: true
@@ -81,7 +83,8 @@ endpoints:
           "google/gemini-3.1-flash-lite-preview",          
           "z-ai/glm-4.7-flash",
           "qwen/qwen3.5-flash-02-23",
-          "perplexity/sonar"
+          "perplexity/sonar",
+          "xiaomi/mimo-v2-flash"
           ]
         fetch: false
       titleConvo: true
