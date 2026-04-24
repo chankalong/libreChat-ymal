@@ -43,11 +43,11 @@ endpoints:
       models:
         default: [
           "qwen/qwen3.5-397b-a17b",
+          "z-ai/glm-5.1",
           "z-ai/glm-5-turbo",
-          "z-ai/glm-5",
-          "deepseek/deepseek-v3.2",
-          "moonshotai/kimi-k2.5",
-          "xiaomi/mimo-v2-pro"
+          "deepseek/deepseek-v4-pro",
+          "moonshotai/kimi-k2.6",
+          "xiaomi/mimo-v2.5-pro"
           ]
         fetch: false
       titleConvo: true
@@ -67,7 +67,7 @@ endpoints:
           "perplexity/r1-1776",
           "minimax/minimax-m2.7",
           "qwen/qwen3.5-27b",
-          "xiaomi/mimo-v2-omni"
+          "xiaomi/mimo-v2.5"
           ]
         fetch: false
       titleConvo: true
@@ -84,7 +84,8 @@ endpoints:
           "z-ai/glm-4.7-flash",
           "qwen/qwen3.5-flash-02-23",
           "perplexity/sonar",
-          "xiaomi/mimo-v2-flash"
+          "xiaomi/mimo-v2-flash",
+          "deepseek/deepseek-v4-flash"
           ]
         fetch: false
       titleConvo: true
