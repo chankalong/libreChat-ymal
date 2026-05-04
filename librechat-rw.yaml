@@ -117,6 +117,14 @@ mcpServers:
     chatMenu: true
     headers:
       X-Auth-Token: "${MCP_GOOGLE_IMAGE_AUTH_TOKENS}"
+  image-generate-or-edit-openai:
+    type: streamable-http
+    url: https://image-generate-openai-mcp.vercel.app/api/mcp
+    timeout: 300000
+    serverInstructions: true
+    chatMenu: true
+    headers:
+      X-Auth-Token: "${MCP_GOOGLE_IMAGE_AUTH_TOKENS}"
   convert-to-excel:
     type: streamable-http
     url: https://convert-excel.vercel.app/api/mcp
