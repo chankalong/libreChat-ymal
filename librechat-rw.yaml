@@ -43,7 +43,7 @@ endpoints:
       baseURL: "https://openrouter.ai/api/v1"
       models:
         default: [
-          "qwen/qwen3.6-max-preview",
+          "qwen/qwen3.7-max",
           "z-ai/glm-5.1",
           "z-ai/glm-5-turbo",
           "deepseek/deepseek-v4-pro",
