@@ -137,7 +137,7 @@ mcpServers:
     serverInstructions: true
     chatMenu: true
 ocr:
-  mistralModel: "mistral-document-ai-2512"              # Should match your Azure deployment name
+  mistralModel: "${AZURE_MISTRAL_OCR_MODEL}"              # Should match your Azure deployment name
   apiKey: "${AZURE_MISTRAL_OCR_API_KEY}"                 # Reference to your Azure API key in .env
-  baseURL: "https://ai-imhs-gateway.azure-api.net/ai-imhs/providers/mistral/azure/ocr"  # Your Azure endpoint
+  baseURL: "${AZURE_MISTRAL_OCR_URL}"  # Your Azure endpoint
   strategy: "azure_mistral_ocr"                          # Use Azure strategy
