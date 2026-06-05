@@ -66,7 +66,7 @@ endpoints:
           "perplexity/sonar-reasoning",
           "perplexity/r1-1776",
           "minimax/minimax-m3",
-          "qwen/qwen3.6-27b",
+          "qwen/qwen3.7-plus",
           "xiaomi/mimo-v2.5"
           ]
         fetch: false
