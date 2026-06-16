@@ -13,6 +13,24 @@ endpoints:
     # OpenRouter.ai
     # Model list: https://openrouter.ai/models
     # Script to fetch models: https://github.com/LibreChat-AI/librechat-config-yaml/blob/main/scripts/openrouter.py
+    - name: "多模型互補"
+      apiKey: "${OPENROUTER_KEY}"
+      baseURL: "https://openrouter.ai/api/v1"
+      models:
+        default: [
+          "---先由多個模型同時進行並處理---",
+          "---再由審查模型對各回答進行分析---",
+          "---最後整合出最好的回答---",
+          "---真係好貴好貴好貴好貴---",
+          "---真係好貴好貴好貴好貴---",
+          "---真係好貴好貴好貴好貴---",
+          "---諗清楚先好用---",
+          "openrouter/fusion",
+          ]
+        fetch: false
+      titleConvo: true
+      summarize: false
+      modelDisplayLabel: "多模型互補"
     - name: "最勁最貴最慢AI"
       apiKey: "${OPENROUTER_KEY}"
       baseURL: "https://openrouter.ai/api/v1"
@@ -47,6 +65,7 @@ endpoints:
           "z-ai/glm-5.1",
           "z-ai/glm-5-turbo",
           "deepseek/deepseek-v4-pro",
+          "moonshotai/kimi-k2.7-code",
           "moonshotai/kimi-k2.6",
           "xiaomi/mimo-v2.5-pro"
           ]
