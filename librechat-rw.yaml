@@ -124,7 +124,16 @@ endpoints:
           deploymentName: gpt-4.1
 mcpServers:  
   # Production-ready cloud service
-  google-image-generate-or-edit:
+  google-image-lite:
+    type: streamable-http
+    url: https://image-generate-googlelite-mcp.vercel.app/api/mcp
+    timeout: 300000
+    serverInstructions: true
+    requiresOAuth: false
+    chatMenu: true
+    headers:
+      X-Auth-Token: "${MCP_GOOGLE_IMAGE_AUTH_TOKENS}"
+  google-image:
     type: streamable-http
     url: https://image-generate-mcp.vercel.app/api/mcp
     timeout: 300000
@@ -133,7 +142,7 @@ mcpServers:
     chatMenu: true
     headers:
       X-Auth-Token: "${MCP_GOOGLE_IMAGE_AUTH_TOKENS}"
-  openai-image-generate-or-edit:
+  openai-image:
     type: streamable-http
     url: https://image-generate-openai-mcp.vercel.app/api/mcp
     timeout: 300000
@@ -145,12 +154,6 @@ mcpServers:
   convert-to-excel:
     type: streamable-http
     url: https://convert-excel.vercel.app/api/mcp
-    timeout: 300000
-    serverInstructions: true
-    chatMenu: true
-  prompt-library:
-    type: streamable-http
-    url: https://prompts.chat/api/mcp
     timeout: 300000
     serverInstructions: true
     chatMenu: true
