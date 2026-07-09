@@ -184,9 +184,10 @@ skillSync:
     runOnStartup: true
     sources:
       - id: steve-jobs-skill
-        owner: alchaincyf
+        owner: chankalong
         repo: steve-jobs-skill
         ref: main
         paths:
           - .
         skillDiscoveryDepth: 2
+        token: '${GITHUB_SKILLS_TOKEN}'
