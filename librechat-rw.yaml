@@ -191,3 +191,13 @@ skillSync:
           - .
         skillDiscoveryDepth: 2
         token: '${GITHUB_SKILLS_TOKEN}'
+interface:
+  skills:
+    use: true
+    create: true
+    share: true
+    public: true
+    defaultActiveOnShare: true
+  defaultPinnedTools:
+    - skills
+    - mcp
