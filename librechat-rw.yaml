@@ -190,4 +190,3 @@ skillSync:
         paths:
           - .
         skillDiscoveryDepth: 2
-        token: '${GITHUB_SKILLS_TOKEN}'
