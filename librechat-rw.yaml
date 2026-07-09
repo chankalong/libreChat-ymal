@@ -176,7 +176,7 @@ messageFilter:
         regex: 'sk-ant-[A-Za-z0-9_-]{20,}'
       - id: hkid
         label: HKID
-        regex: '\\(?\\s*[A-Za-z]\\s*(?:\\d\\s*){6}\\s*\\)?(?:\\s*\\(?\\s*[0-9Aa]\\s*\\)?)?'
+        regex: '\(?\s*[A-Za-z]\s*(?:\d\s*){6}\s*\)?(?:\s*\(?\s*[0-9Aa]\s*\)?)?'
 skillSync:
   github:
     enabled: true
