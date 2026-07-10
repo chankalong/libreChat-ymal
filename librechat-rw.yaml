@@ -113,20 +113,6 @@ endpoints:
       titleConvo: true
       summarize: false
       modelDisplayLabel: "我係超平超快超廢嘅AI"
-    - name: "廣東話AI"
-      apiKey: "${HUGGINGFACE_TOKEN}"
-      baseURL: "https://api-inference.huggingface.co/v1"
-      models:
-        default: [
-          "hon9kon9ize/CantoneseLLMChat-v1.0-7B",
-          "hon9kon9ize/CantoneseLLMChat-v1.0-32B",
-          "hon9kon9ize/CantoneseLLMChat-v1.0-72B"
-          ]
-        fetch: true
-      titleConvo: true
-      summarize: false
-      dropParams: ["top_p"]
-      modelDisplayLabel: "廣東話AI"
   azureOpenAI:
     # Endpoint-level configuration
     titleModel: "gpt-4.1-nano"
