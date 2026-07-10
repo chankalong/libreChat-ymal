@@ -183,13 +183,13 @@ messageFilter:
         regex: '\b[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,63}\b'
       - id: hk_phone
         label: Hong Kong phone number
-        regex: '(?:\+852[\s-]*[2-9][0-9]{3}[\s-]?[0-9]{4}\b|\b(?:852[\s-]*)?[2-9][0-9]{3}[\s-]?[0-9]{4}\b)'
+        regex: '(?:\+?852[\s-]*)?[2-9][0-9]{3}[\s-]?[0-9]{4}'
       - id: credit_card
         label: Credit card number
         regex: '\b(?:[0-9][ -]?){12,18}[0-9]\b'
       - id: hkid
         label: Hong Kong Identity Card
-        regex: '\b(?:[A-Za-z]\s*){1,2}(?:[0-9]\s*){6}\(\s*[0-9Aa]\s*\)'       #'\(?\s*[A-Za-z]\s*(?:\d\s*){6}\s*\)?(?:\s*\(?\s*[0-9Aa]\s*\)?)?'
+        regex: '(?:[A-Za-z]\s*){1,2}(?:[0-9]\s*){6}\(\s*[0-9Aa]\s*\)'       #'\(?\s*[A-Za-z]\s*(?:\d\s*){6}\s*\)?(?:\s*\(?\s*[0-9Aa]\s*\)?)?'
 skillSync:
   github:
     enabled: true
