@@ -214,7 +214,7 @@ interface:
     - skills
     - mcp
 memory:
-  disabled: true
+  disabled: false
   tokenLimit: 2000
   charLimit: 10000
   maxInputTokens: 12000
