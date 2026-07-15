@@ -44,7 +44,6 @@ endpoints:
           "openai/gpt-5.6-sol",
           "openai/gpt-5.6-terra-pro",
           "openai/gpt-5.6-terra",
-          "openai/gpt-5.3-chat",
           "openai/gpt-5.3-codex",
           "anthropic/claude-opus-4.8",
           "google/gemini-3.1-pro-preview",
@@ -214,3 +213,17 @@ interface:
   defaultPinnedTools:
     - skills
     - mcp
+memory:
+  disabled: true
+  tokenLimit: 2000
+  charLimit: 10000
+  maxInputTokens: 12000
+  personalize: true
+  messageWindowSize: 5
+  agent:
+    provider: 'custom'
+    model: 'google/gemini-3.5-flash'
+    instructions: 'You are a helpful assistant that remembers user preferences and context.'
+    model_parameters:
+      temperature: 0.7
+      max_tokens: 1000
