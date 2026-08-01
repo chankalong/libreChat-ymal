@@ -69,7 +69,8 @@ endpoints:
           "moonshotai/kimi-k2.7-code",
           "moonshotai/kimi-k2.6",
           "xiaomi/mimo-v2.5-pro",
-          "tencent/hy3"
+          "tencent/hy3",
+          "qwen/qwen3.7-max"
           ]
         fetch: false
       titleConvo: true
@@ -91,7 +92,7 @@ endpoints:
           "perplexity/r1-1776",
           "minimax/minimax-m3",
           "xiaomi/mimo-v2.5",
-          "qwen/qwen3.6-27b"
+          "qwen/qwen3.7-plus"
           ]
         fetch: false
       titleConvo: true
@@ -104,11 +105,12 @@ endpoints:
         default: [
           "anthropic/claude-haiku-4.5",
           "openai/gpt-5.4-nano",
-          "google/gemini-3.5-flash-lite",          
+          "google/gemini-3.5-flash-lite",  
+          "thinkingmachines/inkling-small",
           "z-ai/glm-4.7-flash",
-          "qwen/qwen3.6-35b-a3b",
+          "qwen/qwen3.7-flash",
           "perplexity/sonar",
-          "deepseek/deepseek-v4-flash"
+          "deepseek/deepseek-v4-flash-0731"
           ]
         fetch: false
       titleConvo: true
@@ -203,6 +205,14 @@ skillSync:
         ref: main
         paths:
           - .
+        skillDiscoveryDepth: 2
+        token: '${GITHUB_SKILLS_TOKEN}'
+      - id: refresh-insights-writing
+        owner: chankalong
+        repo: bokss-skill
+        ref: main
+        paths:
+          - refresh-insights-writing
         skillDiscoveryDepth: 2
         token: '${GITHUB_SKILLS_TOKEN}'
 interface:
