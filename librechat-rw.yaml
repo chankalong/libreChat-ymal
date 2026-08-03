@@ -206,6 +206,22 @@ skillSync:
           - .
         skillDiscoveryDepth: 2
         token: '${GITHUB_SKILLS_TOKEN}'
+      - id: speak-human-tw
+        owner: chankalong
+        repo: speak-human-tw
+        ref: main
+        paths:
+          - .
+        skillDiscoveryDepth: 2
+        token: '${GITHUB_SKILLS_TOKEN}'
+      - id: Humanizer-zh-TW
+        owner: chankalong
+        repo: Humanizer-zh-TW
+        ref: main
+        paths:
+          - .
+        skillDiscoveryDepth: 2
+        token: '${GITHUB_SKILLS_TOKEN}'
       - id: refresh-insights-writing
         owner: chankalong
         repo: bokss-skill
