@@ -209,7 +209,7 @@ skillSync:
       - id: speak-human-tw
         owner: chankalong
         repo: speak-human-tw
-        ref: main
+        ref: master
         paths:
           - .
         skillDiscoveryDepth: 2
