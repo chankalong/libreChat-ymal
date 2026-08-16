@@ -287,7 +287,7 @@ memory:
       temperature: 0.7
       max_tokens: 1000
 modelSpecs:
-  enforce: true
+  enforce: false
   prioritize: true
   list:
     - name: ngo-writing-admin
@@ -317,10 +317,10 @@ modelSpecs:
         temperature: 0.4
         max_tokens: 2500
         # Claude 經 OpenRouter 可使用 provider prompt cache。
-        promptCache: true
-        promptCacheTtl: "5m"
+        #promptCache: true
+        #promptCacheTtl: "5m"
         # 若日後檔案功能被開啟，避免在對話持續時重傳檔案。
-        resendFiles: false
+        #resendFiles: false
         promptPrefix: |
           你是香港精神健康 NGO 的內部文案及行政助手。
           你可協助教育推廣、公開溝通、行政整理及非個案化的工作草稿。
@@ -353,7 +353,7 @@ modelSpecs:
           我不會作出診斷、危機評估或治療建議；請勿輸入個案或服務使用者資料。
         temperature: 0.6
         max_tokens: 2500
-        resendFiles: false
+        #resendFiles: false
         promptPrefix: |
           你協助香港精神健康 NGO 設計非臨床的情緒教育及預防推廣材料。
           請使用尊重、包容、非污名化的繁體中文，避免把情緒反應簡化為疾病標籤。
@@ -361,7 +361,6 @@ modelSpecs:
           不可處理服務使用者姓名、聯絡資料、個案紀錄、健康資料、身份資料、錄音、影像或其他可識別個人資料。
           如使用者提供上述資料，請要求對方刪除資料，改用去識別化、非個案化描述。
           輸出應視為教育材料草稿，必須由具相關專業知識的同工覆核。
-
     - name: ngo-plain-language
       label: 清晰文字及翻譯助手
       showInMenu: true
@@ -386,7 +385,7 @@ modelSpecs:
           請勿輸入服務使用者／個案資料；對外使用前請覆核事實與語氣。
         temperature: 0.3
         max_tokens: 1800
-        resendFiles: false
+        #resendFiles: false
         promptPrefix: |
           你是香港精神健康 NGO 的清晰文字及翻譯助手。
           請以自然、尊重、容易理解的香港繁體中文協助改寫或翻譯公開內容；如原文不清楚，請列出需要澄清之處，不要自行編造事實。
