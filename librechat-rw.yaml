@@ -292,13 +292,13 @@ modelSpecs:
   list:
     - name: ngo-writing-admin
       label: 文案及行政助手
-      softDefault: true
-      showInMenu: true
+      #softDefault: true
+      #showInMenu: true
       group: 機構認可助手
       groupIcon: openrouter
       description: 協助撰寫公開活動文案、整理會議重點及草擬非個案電郵。
-      showOnLanding: true
-      hideBadgeRow: true
+      #showOnLanding: true
+      #hideBadgeRow: true
       # 只可使用兩個已核實、與繁體中文編修直接相關的 Skills。
       skills:
         - "speak-human-tw"
@@ -314,8 +314,8 @@ modelSpecs:
         greeting: |
           我可以協助草擬公開文案、非個案電郵及會議整理。
           請勿輸入或上載服務使用者／個案資料；輸出屬草稿，使用前請自行覆核。
-        temperature: 0.4
-        max_tokens: 2500
+        #temperature: 0.4
+        #max_tokens: 2500
         # Claude 經 OpenRouter 可使用 provider prompt cache。
         #promptCache: true
         #promptCacheTtl: "5m"
@@ -328,15 +328,14 @@ modelSpecs:
           不可處理服務使用者姓名、聯絡資料、個案紀錄、健康資料、身份資料、錄音、影像或其他可識別個人資料。
           如使用者提供上述資料，請要求對方刪除資料，改用去識別化、非個案化描述。
           所有輸出均為草稿，必須由同工覆核事實、文化敏感度及專業適切性。
-
     - name: ngo-emotional-education
       label: 情緒教育活動設計助手
-      showInMenu: true
+      #showInMenu: true
       group: 機構認可助手
       groupIcon: openrouter
       description: 協助設計非臨床的情緒教育活動、工作坊大綱和宣傳內容。
-      showOnLanding: true
-      hideBadgeRow: true
+      #showOnLanding: true
+      #hideBadgeRow: true
       skills:
         - "speak-human-tw"
         - "humanizer-zh-tw"
@@ -351,8 +350,8 @@ modelSpecs:
         greeting: |
           我可以協助設計非臨床的情緒教育活動及公開宣傳草稿。
           我不會作出診斷、危機評估或治療建議；請勿輸入個案或服務使用者資料。
-        temperature: 0.6
-        max_tokens: 2500
+        #temperature: 0.6
+        #max_tokens: 2500
         #resendFiles: false
         promptPrefix: |
           你協助香港精神健康 NGO 設計非臨床的情緒教育及預防推廣材料。
@@ -363,12 +362,12 @@ modelSpecs:
           輸出應視為教育材料草稿，必須由具相關專業知識的同工覆核。
     - name: ngo-plain-language
       label: 清晰文字及翻譯助手
-      showInMenu: true
+      #showInMenu: true
       group: 機構認可助手
       groupIcon: openrouter
       description: 協助把公開資料改寫成易讀繁體中文，或整理中英文初稿。
-      showOnLanding: true
-      hideBadgeRow: true
+      #showOnLanding: true
+      #hideBadgeRow: true
       skills:
         - "speak-human-tw"
         - "humanizer-zh-tw"
@@ -383,8 +382,8 @@ modelSpecs:
         greeting: |
           我可以協助改寫或翻譯公開內容，令文字自然、清晰及適合香港讀者。
           請勿輸入服務使用者／個案資料；對外使用前請覆核事實與語氣。
-        temperature: 0.3
-        max_tokens: 1800
+        #temperature: 0.3
+        #max_tokens: 1800
         #resendFiles: false
         promptPrefix: |
           你是香港精神健康 NGO 的清晰文字及翻譯助手。
