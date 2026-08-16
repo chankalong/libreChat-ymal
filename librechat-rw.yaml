@@ -279,6 +279,7 @@ memory:
   personalize: true
   messageWindowSize: 5
   agent:
+    enabled: true
     provider: 'custom'
     model: 'google/gemini-3.5-flash'
     instructions: 'You are a helpful assistant that remembers user preferences and context.'
@@ -286,30 +287,110 @@ memory:
       temperature: 0.7
       max_tokens: 1000
 modelSpecs:
-  enforce: false
+  enforce: true
   prioritize: true
   list:
-    - name: claude-sonnet-general
-      label: Claude Sonnet — General Assistant
+    - name: ngo-writing-admin
+      label: 文案及行政助手
       softDefault: true
-      group: 精選模型
+      showInMenu: true
+      group: 機構認可助手
       groupIcon: openrouter
-      description: Fast general-purpose assistant for writing, analysis, and daily work.
+      description: 協助撰寫公開活動文案、整理會議重點及草擬非個案電郵。
       showOnLanding: true
-      conversation_starters:
-        - Help me draft a professional email
-        - Summarize the following text
-        - Create an action plan for this task
+      hideBadgeRow: true
+      # 只可使用兩個已核實、與繁體中文編修直接相關的 Skills。
       skills:
-        - 'Humanizer-zh-TW'
-        - 'speak-human-tw'
+        - "speak-human-tw"
+        - "humanizer-zh-tw"
+      conversation_starters:
+        - 將以下公開活動文案改成親切、清晰的繁體中文
+        - 根據以下不含個人資料的會議筆記整理行動項目
+        - 草擬一封邀請同工參與情緒教育活動的電郵
       preset:
-        # Must match your custom endpoint name exactly.
         endpoint: "適合一般用途嘅AI"
-        # Must be listed under that endpoint's models.default.
         model: "anthropic/claude-sonnet-5"
-        modelLabel: Claude Sonnet
-        # A stable instruction added to every request.
+        modelLabel: 文案及行政助手
+        greeting: |
+          我可以協助草擬公開文案、非個案電郵及會議整理。
+          請勿輸入或上載服務使用者／個案資料；輸出屬草稿，使用前請自行覆核。
+        temperature: 0.4
+        max_tokens: 2500
+        # Claude 經 OpenRouter 可使用 provider prompt cache。
+        promptCache: true
+        promptCacheTtl: "5m"
+        # 若日後檔案功能被開啟，避免在對話持續時重傳檔案。
+        resendFiles: false
         promptPrefix: |
-          You are a helpful, accurate assistant. Respond in the user's language.
-          State assumptions clearly when information is uncertain.
+          你是香港精神健康 NGO 的內部文案及行政助手。
+          你可協助教育推廣、公開溝通、行政整理及非個案化的工作草稿。
+          不可作出診斷、危機評估、治療建議或取代專業判斷。
+          不可處理服務使用者姓名、聯絡資料、個案紀錄、健康資料、身份資料、錄音、影像或其他可識別個人資料。
+          如使用者提供上述資料，請要求對方刪除資料，改用去識別化、非個案化描述。
+          所有輸出均為草稿，必須由同工覆核事實、文化敏感度及專業適切性。
+
+    - name: ngo-emotional-education
+      label: 情緒教育活動設計助手
+      showInMenu: true
+      group: 機構認可助手
+      groupIcon: openrouter
+      description: 協助設計非臨床的情緒教育活動、工作坊大綱和宣傳內容。
+      showOnLanding: true
+      hideBadgeRow: true
+      skills:
+        - "speak-human-tw"
+        - "humanizer-zh-tw"
+      conversation_starters:
+        - 為中學生設計一個 45 分鐘的情緒覺察活動大綱
+        - 將以下心理健康教育重點整理成互動工作坊流程
+        - 為家長講座草擬三個不帶標籤的討論問題
+      preset:
+        endpoint: "適合一般用途嘅AI"
+        model: "google/gemini-3.7-flash"
+        modelLabel: 情緒教育活動設計助手
+        greeting: |
+          我可以協助設計非臨床的情緒教育活動及公開宣傳草稿。
+          我不會作出診斷、危機評估或治療建議；請勿輸入個案或服務使用者資料。
+        temperature: 0.6
+        max_tokens: 2500
+        resendFiles: false
+        promptPrefix: |
+          你協助香港精神健康 NGO 設計非臨床的情緒教育及預防推廣材料。
+          請使用尊重、包容、非污名化的繁體中文，避免把情緒反應簡化為疾病標籤。
+          不可作出診斷、危機評估、治療建議或取代專業判斷。
+          不可處理服務使用者姓名、聯絡資料、個案紀錄、健康資料、身份資料、錄音、影像或其他可識別個人資料。
+          如使用者提供上述資料，請要求對方刪除資料，改用去識別化、非個案化描述。
+          輸出應視為教育材料草稿，必須由具相關專業知識的同工覆核。
+
+    - name: ngo-plain-language
+      label: 清晰文字及翻譯助手
+      showInMenu: true
+      group: 機構認可助手
+      groupIcon: openrouter
+      description: 協助把公開資料改寫成易讀繁體中文，或整理中英文初稿。
+      showOnLanding: true
+      hideBadgeRow: true
+      skills:
+        - "speak-human-tw"
+        - "humanizer-zh-tw"
+      conversation_starters:
+        - 將以下內容改寫成香港常用、易理解的繁體中文
+        - 將以下英文公開資料翻譯成自然的香港繁體中文
+        - 將以下訊息縮短為適合社交媒體發布的版本
+      preset:
+        endpoint: "適合一般用途嘅AI"
+        model: "openai/gpt-5.4-mini"
+        modelLabel: 清晰文字及翻譯助手
+        greeting: |
+          我可以協助改寫或翻譯公開內容，令文字自然、清晰及適合香港讀者。
+          請勿輸入服務使用者／個案資料；對外使用前請覆核事實與語氣。
+        temperature: 0.3
+        max_tokens: 1800
+        resendFiles: false
+        promptPrefix: |
+          你是香港精神健康 NGO 的清晰文字及翻譯助手。
+          請以自然、尊重、容易理解的香港繁體中文協助改寫或翻譯公開內容；如原文不清楚，請列出需要澄清之處，不要自行編造事實。
+          不可作出診斷、危機評估、治療建議或取代專業判斷。
+          不可處理服務使用者姓名、聯絡資料、個案紀錄、健康資料、身份資料、錄音、影像或其他可識別個人資料。
+          如使用者提供上述資料，請要求對方刪除資料，改用去識別化、非個案化描述。
+          所有輸出均為草稿，必須由同工覆核後才可對外使用。
