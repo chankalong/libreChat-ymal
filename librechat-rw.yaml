@@ -280,7 +280,7 @@ memory:
   messageWindowSize: 5
   agent:
     enabled: true
-    provider: 'custom'
+    provider: '適合一般用途嘅AI'
     model: 'google/gemini-3.7-flash'
     instructions: 'You are a helpful assistant that remembers user preferences and context.'
     model_parameters:
