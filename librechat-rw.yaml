@@ -260,10 +260,7 @@ skillSync:
         token: '${GITHUB_SKILLS_TOKEN}'
 interface:
   # 一進入系統即清楚說明這是工作草稿工具，而不是個案服務系統。
-  customWelcome: |
-    歡迎使用機構認可 AI 助手。你可以用它協助教育推廣、公開文案及行政草稿。
-    請勿輸入、上載或貼出任何服務使用者、個案、健康、身份或聯絡資料。
-    所有輸出均須由同工覆核，不能取代專業判斷。
+  customWelcome: "歡迎使用 BOKSS AI。請勿輸入任何可識別個人資料。"
 
   # 首次使用前要求同工確認基本 AI 使用守則；LibreChat 會記錄接受狀態與時間。
   termsOfService:
