@@ -372,7 +372,8 @@ modelSpecs:
         - 為家長講座草擬三個不帶標籤的討論問題
       askUserQuestion: true
       preset:
-        endpoint: "適合一般用途嘅AI"
+        endpoint: 'agents'
+        agent_id: 'agent_J6YDB0UZ0FdB4lrPZbb5T'
         model: "google/gemini-3.7-flash"
         modelLabel: 情緒教育活動設計助手
         greeting: |
