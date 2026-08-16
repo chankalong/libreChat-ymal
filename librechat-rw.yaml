@@ -259,6 +259,29 @@ skillSync:
         skillDiscoveryDepth: 2
         token: '${GITHUB_SKILLS_TOKEN}'
 interface:
+  # 一進入系統即清楚說明這是工作草稿工具，而不是個案服務系統。
+  customWelcome: |
+    歡迎使用機構認可 AI 助手。你可以用它協助教育推廣、公開文案及行政草稿。
+    請勿輸入、上載或貼出任何服務使用者、個案、健康、身份或聯絡資料。
+    所有輸出均須由同工覆核，不能取代專業判斷。
+
+  # 首次使用前要求同工確認基本 AI 使用守則；LibreChat 會記錄接受狀態與時間。
+  termsOfService:
+    modalAcceptance: true
+    modalTitle: "機構 AI 使用守則"
+    modalContent: |
+      ## 使用前請確認
+
+      本工具只可用於教育推廣、公開溝通及非個案化行政草稿。
+
+      1. 不可輸入、貼出或上載服務使用者姓名、聯絡資料、個案紀錄、健康資料、身份資料、錄音、影像或其他可識別個人資料。
+      2. AI 產出只屬草稿；在對外發布或用於服務前，必須由具相關職責的同工覆核事實、文化敏感度及專業適切性。
+      3. 本工具不會作出診斷、危機評估或治療建議，亦不可取代專業判斷和既有服務程序。
+      4. 如不確定內容是否適合輸入，請先刪除可識別資料，或向主管／資料私隱負責同工查詢。
+
+  # 保留 token 使用量作透明度提示，但不顯示金額，避免技術和成本焦慮。
+  contextUsage: true
+  contextCost: false
   modelSelect: true
   parameters: true
   presets: true
@@ -343,6 +366,7 @@ modelSpecs:
         - 為中學生設計一個 45 分鐘的情緒覺察活動大綱
         - 將以下心理健康教育重點整理成互動工作坊流程
         - 為家長講座草擬三個不帶標籤的討論問題
+      askUserQuestion: true
       preset:
         endpoint: "適合一般用途嘅AI"
         model: "google/gemini-3.7-flash"
