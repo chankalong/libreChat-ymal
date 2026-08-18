@@ -208,12 +208,12 @@ messageFilter:
       - id: anthropic_api_key
         label: Anthropic API key
         regex: 'sk-ant-[A-Za-z0-9_-]{20,}'
-      - id: email
-        label: Email address
-        regex: '\b[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,63}\b'
-      - id: hk_phone
-        label: Hong Kong phone number
-        regex: '(?:^|[^0-9A-Za-z])(?:[+]852[ -]*|852[ -]*)?[2-9][0-9]{3}[ -]?[0-9]{4}(?:$|[^0-9A-Za-z])'
+      #- id: email
+      #  label: Email address
+      #  regex: '\b[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,63}\b'
+      #- id: hk_phone
+      #  label: Hong Kong phone number
+      #  regex: '(?:^|[^0-9A-Za-z])(?:[+]852[ -]*|852[ -]*)?[2-9][0-9]{3}[ -]?[0-9]{4}(?:$|[^0-9A-Za-z])'
       - id: credit_card
         label: Credit card number
         regex: '\b(?:[0-9][ -]?){12,18}[0-9]\b'
