@@ -315,7 +315,7 @@ memory:
       max_tokens: 1000
 modelSpecs:
   enforce: false
-  prioritize: true
+  prioritize: false
   list:
     - name: ngo-writing-admin
       label: 文案及行政助手
