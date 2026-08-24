@@ -108,8 +108,6 @@ endpoints:
           "google/gemini-3.7-flash",
           "thinkingmachines/inkling",
           "perplexity/sonar-pro",
-          "perplexity/sonar-reasoning",
-          "perplexity/r1-1776",
           "minimax/minimax-m3",
           "xiaomi/mimo-v2.5",
           "qwen/qwen3.6-27b",
