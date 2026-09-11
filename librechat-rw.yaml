@@ -258,6 +258,14 @@ skillSync:
           - refresh-insights-writing
         skillDiscoveryDepth: 2
         token: '${GITHUB_SKILLS_TOKEN}'
+      - id: surveyjs-json
+        owner: chankalong
+        repo: bokss-skill
+        ref: main
+        paths:
+          - surveyjs-json
+        skillDiscoveryDepth: 2
+        token: '${GITHUB_SKILLS_TOKEN}'
 interface:
   # 一進入系統即清楚說明這是工作草稿工具，而不是個案服務系統。
   customWelcome: "歡迎使用 BOKSS AI。請勿輸入任何可識別個人資料。"
