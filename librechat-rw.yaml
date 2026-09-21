@@ -224,7 +224,8 @@ endpoints:
           "qwen/qwen3.6-27b",
           "bytedance-seed/seed-2-1-turbo",
           "tencent/hy3",
-          "z-ai/glm-5.3-flash"
+          "z-ai/glm-5.3-flash",
+          "z-ai/glm-5.3-flashx"
           ]
         fetch: false
       titleConvo: true
@@ -298,6 +299,11 @@ endpoints:
           completion: 0.3
           context: 1310720
           cacheRead: 0.018
+        z-ai/glm-5.3-flashx:
+          prompt: 0.37
+          completion: 1.25
+          context: 1048576
+          cacheRead: 0.075
     - name: "超平超快超廢"
       apiKey: "${OPENROUTER_KEY}"
       baseURL: "https://openrouter.ai/api/v1"
