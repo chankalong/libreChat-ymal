@@ -67,6 +67,71 @@ endpoints:
       titleConvo: true
       summarize: false
       modelDisplayLabel: "我係最勁最貴最慢嘅AI"
+      tokenConfig:
+        openai/gpt-5.6-sol-pro:
+          prompt: 2
+          completion: 10
+          context: 1050000
+          cacheRead: 0.2
+          cacheWrite: 2.5
+        openai/gpt-5.6-sol:
+          prompt: 2
+          completion: 10
+          context: 1050000
+          cacheRead: 0.2
+          cacheWrite: 2.5
+        openai/gpt-5.6-terra-pro:
+          prompt: 2
+          completion: 12
+          context: 1050000
+          cacheRead: 0.2
+          cacheWrite: 2.5
+        openai/gpt-5.6-terra:
+          prompt: 2
+          completion: 12
+          context: 1050000
+          cacheRead: 0.2
+          cacheWrite: 2.5
+        openai/gpt-5.3-codex:
+          prompt: 1.75
+          completion: 14
+          context: 400000
+          cacheRead: 0.175
+        anthropic/claude-opus-5:
+          prompt: 5
+          completion: 25
+          context: 1000000
+          cacheRead: 0.5
+          cacheWrite: 6.25
+        google/gemini-3.1-pro-preview:
+          prompt: 2
+          completion: 12
+          context: 1048576
+          cacheRead: 0.2
+          cacheWrite: 0.375
+        x-ai/grok-4.6:
+          prompt: 2
+          completion: 6
+          context: 500000
+          cacheRead: 0.5
+        x-ai/grok-build-0.1:
+          prompt: 1
+          completion: 2
+          context: 256000
+          cacheRead: 0.2
+        x-ai/grok-4.20-multi-agent:
+          prompt: 1.25
+          completion: 2.5
+          context: 2000000
+          cacheRead: 0.2
+        perplexity/sonar-reasoning-pro:
+          prompt: 2
+          completion: 8
+          context: 128000
+        perplexity/sonar-pro-search:
+          prompt: 3
+          completion: 15
+          context: 200000
     - name: "國產頂級AI"
       apiKey: "${OPENROUTER_KEY}"
       baseURL: "https://openrouter.ai/api/v1"
@@ -91,6 +156,52 @@ endpoints:
       titleConvo: true
       summarize: false
       modelDisplayLabel: "我係國產頂級AI"
+      tokenConfig:
+        z-ai/glm-5.3:
+          prompt: 0.91
+          completion: 2.86
+          context: 1310720
+          cacheRead: 0.169
+        z-ai/glm-5-turbo:
+          prompt: 1.2
+          completion: 4
+          context: 202752
+          cacheRead: 0.24
+        deepseek/deepseek-v4-pro:
+          prompt: 0.95526
+          completion: 1.91052
+          context: 1048576
+          cacheRead: 0.079605
+        moonshotai/kimi-k3:
+          prompt: 1.675
+          completion: 9.38
+          context: 1048576
+          cacheRead: 0.1943
+        moonshotai/kimi-k2.7-code:
+          prompt: 0.7062
+          completion: 3.21
+          context: 262144
+          cacheRead: 0.18
+        moonshotai/kimi-k2.6:
+          prompt: 0.95
+          completion: 4
+          context: 262144
+          cacheRead: 0.16
+        xiaomi/mimo-v2.5-pro:
+          prompt: 0.435
+          completion: 0.87
+          context: 1050000
+          cacheRead: 0.0036
+        tencent/hy4-preview:
+          prompt: 0.834
+          completion: 2.501
+          context: 1048576
+          cacheRead: 0.042
+        qwen/qwen3.8-27b:
+          prompt: 0.2
+          completion: 2.5
+          context: 1000000
+          cacheRead: 0.05
     - name: "適合一般用途嘅AI"
       apiKey: "${OPENROUTER_KEY}"
       baseURL: "https://openrouter.ai/api/v1"
@@ -119,6 +230,74 @@ endpoints:
       titleConvo: true
       summarize: false
       modelDisplayLabel: "我係適合一般用途嘅AI"
+      tokenConfig:
+        openai/gpt-5.6-luna-pro:
+          prompt: 0.2
+          completion: 1.2
+          context: 1050000
+          cacheRead: 0.02
+          cacheWrite: 0.25
+        openai/gpt-5.6-luna:
+          prompt: 0.2
+          completion: 1.2
+          context: 1050000
+          cacheRead: 0.02
+          cacheWrite: 0.25
+        openai/gpt-5.4-mini:
+          prompt: 0.75
+          completion: 4.5
+          context: 400000
+          cacheRead: 0.075
+        anthropic/claude-sonnet-5:
+          prompt: 2
+          completion: 10
+          context: 1000000
+          cacheRead: 0.2
+          cacheWrite: 2.5
+        google/gemini-3.8-flash:
+          prompt: 0.75
+          completion: 3.75
+          context: 1048576
+          cacheRead: 0.075
+          cacheWrite: 0.041667
+        thinkingmachines/inkling:
+          prompt: 1
+          completion: 4.05
+          context: 1048576
+          cacheRead: 0.17
+        perplexity/sonar-pro:
+          prompt: 3
+          completion: 15
+          context: 200000
+        minimax/minimax-m3:
+          prompt: 0.3
+          completion: 1.2
+          context: 1048576
+          cacheRead: 0.06
+        xiaomi/mimo-v2.5:
+          prompt: 0.14
+          completion: 0.28
+          context: 1050000
+          cacheRead: 0.0028
+        qwen/qwen3.6-27b:
+          prompt: 0.3
+          completion: 2
+          context: 262144
+          cacheRead: 0.03
+        bytedance-seed/seed-2-1-turbo:
+          prompt: 0.5
+          completion: 2.5
+          context: 262144
+        tencent/hy3:
+          prompt: 0.132
+          completion: 0.528
+          context: 262144
+          cacheRead: 0.033
+        z-ai/glm-5.3-flash:
+          prompt: 0.09
+          completion: 0.3
+          context: 1310720
+          cacheRead: 0.018
     - name: "超平超快超廢"
       apiKey: "${OPENROUTER_KEY}"
       baseURL: "https://openrouter.ai/api/v1"
@@ -143,6 +322,52 @@ endpoints:
       titleConvo: true
       summarize: false
       modelDisplayLabel: "我係超平超快超廢嘅AI"
+      tokenConfig:
+        anthropic/claude-haiku-4.5:
+          prompt: 1
+          completion: 5
+          context: 200000
+          cacheRead: 0.1
+          cacheWrite: 1.25
+        openai/gpt-5.4-nano:
+          prompt: 0.2
+          completion: 1.25
+          context: 400000
+          cacheRead: 0.02
+        google/gemini-3.5-flash-lite:
+          prompt: 0.3
+          completion: 2.5
+          context: 1048576
+          cacheRead: 0.03
+          cacheWrite: 0.083333
+        thinkingmachines/inkling-small:
+          prompt: 0.45
+          completion: 1.2
+          context: 1048576
+          cacheRead: 0.1
+        z-ai/glm-4.7-flash:
+          prompt: 0.0605
+          completion: 0.4
+          context: 200000
+        qwen/qwen3.6-35b-a3b:
+          prompt: 0.15
+          completion: 1
+          context: 262144
+          cacheRead: 0.05
+        perplexity/sonar:
+          prompt: 1
+          completion: 1
+          context: 127072
+        deepseek/deepseek-v4.1-flash:
+          prompt: 0.3
+          completion: 1.2
+          context: 1048576
+          cacheRead: 0.006
+        meta/muse-glimmer-30b:
+          prompt: 0.3
+          completion: 1.2
+          context: 131072
+          cacheRead: 0.04
   azureOpenAI:
     # Endpoint-level configuration
     titleModel: "gpt-4.1-nano"
@@ -266,7 +491,22 @@ skillSync:
           - surveyjs-json
         skillDiscoveryDepth: 2
         token: '${GITHUB_SKILLS_TOKEN}'
+# --- 用量上限：每人約 US$5／月 ---
+balance:
+  enabled: true
+  startBalance: 5000000
+  autoRefillEnabled: true
+  refillIntervalValue: 1
+  refillIntervalUnit: months
+  refillAmount: 5000000
+
+transactions:
+  enabled: true   # balance 開咗都會強制記；寫明更清楚
+
 interface:
+  # 由 false 改 true；想減少焦慮可維持 false，淨靠 balance 封頂
+  contextUsage: true
+  contextCost: true
   # 一進入系統即清楚說明這是工作草稿工具，而不是個案服務系統。
   customWelcome: "歡迎使用 BOKSS AI。請勿輸入任何可識別個人資料。"
 
@@ -316,7 +556,7 @@ memory:
   agent:
     enabled: true
     provider: '適合一般用途嘅AI'
-    model: 'google/gemini-3.7-flash'
+    model: 'google/gemini-3.8-flash'
     instructions: 'You are a helpful assistant that remembers user preferences and context.'
     model_parameters:
       temperature: 0.7
@@ -382,7 +622,7 @@ modelSpecs:
       preset:
         endpoint: 'agents'
         agent_id: 'agent_J6YDB0UZ0FdB4lrPZbb5T'
-        model: "google/gemini-3.7-flash"
+        model: "google/gemini-3.8-flash"
         modelLabel: 情緒教育活動設計助手
         greeting: |
           我可以協助設計非臨床的情緒教育活動及公開宣傳草稿。
