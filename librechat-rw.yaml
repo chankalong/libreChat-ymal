@@ -504,9 +504,6 @@ transactions:
   enabled: true   # balance 開咗都會強制記；寫明更清楚
 
 interface:
-  # 由 false 改 true；想減少焦慮可維持 false，淨靠 balance 封頂
-  contextUsage: true
-  contextCost: true
   # 一進入系統即清楚說明這是工作草稿工具，而不是個案服務系統。
   customWelcome: "歡迎使用 BOKSS AI。請勿輸入任何可識別個人資料。"
 
@@ -533,7 +530,7 @@ interface:
 
   # 保留 token 使用量作透明度提示，但不顯示金額，避免技術和成本焦慮。
   contextUsage: true
-  contextCost: false
+  contextCost: true
   modelSelect: true
   parameters: true
   presets: true
