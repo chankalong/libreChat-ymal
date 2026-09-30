@@ -23,17 +23,11 @@ endpoints:
           type: ephemeral
       models:
         default: [
-          "---先由多個模型同時進行並處理---",
-          "---再由審查模型對各回答進行分析---",
-          "---最後整合出最好的回答---",
-          "---真係好貴好貴好貴好貴---",
-          "---真係好貴好貴好貴好貴---",
-          "---真係好貴好貴好貴好貴---",
-          "---諗清楚先好用---",
           "openrouter/fusion",
           ]
         fetch: false
       titleConvo: true
+      titleModel: "openrouter/fusion"
       summarize: false
       modelDisplayLabel: "多模型互補"
     - name: "最勁最貴最慢AI"
@@ -46,10 +40,6 @@ endpoints:
           type: ephemeral
       models:
         default: [
-          "---真係好貴---",
-          "---真係好貴---",
-          "---真係好貴---",
-          "---諗清楚先好用---",
           "openai/gpt-6.1-sol",
           "openai/gpt-5.6-terra",
           "openai/gpt-5.3-codex",
@@ -63,6 +53,7 @@ endpoints:
           ]
         fetch: false
       titleConvo: true
+      titleModel: "openai/gpt-6.1-sol"
       summarize: false
       modelDisplayLabel: "我係最勁最貴最慢嘅AI"
       tokenConfig:
@@ -214,6 +205,7 @@ endpoints:
           ]
         fetch: false
       titleConvo: true
+      titleModel: "anthropic/claude-sonnet-5.5"
       summarize: false
       modelDisplayLabel: "我係適合一般用途嘅AI"
       tokenConfig:
@@ -305,6 +297,7 @@ endpoints:
           ]
         fetch: false
       titleConvo: true
+      titleModel: "anthropic/claude-haiku-4.5"
       summarize: false
       modelDisplayLabel: "我係超平超快超廢嘅AI"
       tokenConfig:
@@ -487,6 +480,23 @@ balance:
 
 transactions:
   enabled: true   # balance 開咗都會強制記；寫明更清楚
+
+
+# Attach／tool 修復：假 model ID 已刪；fusion 無 tool use → 附件改走 text，唔再要 read_file
+fileConfig:
+  textFallbackWithoutTools: true
+  endpoints:
+    "多模型互補":
+      # openrouter/fusion 無 tools；附件直接注入文字，避免 OpenRouter 404 tool use
+      defaultLLMDeliveryPath:
+        fallback: text
+      textFallbackWithoutTools: true
+    "適合一般用途嘅AI":
+      textFallbackWithoutTools: true
+    "最勁最貴最慢AI":
+      textFallbackWithoutTools: true
+    "超平超快超廢":
+      textFallbackWithoutTools: true
 
 interface:
   # 一進入系統即清楚說明這是工作草稿工具，而不是個案服務系統。
