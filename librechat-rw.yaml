@@ -23,6 +23,13 @@ endpoints:
           type: ephemeral
       models:
         default: [
+          "---先由多個模型同時進行並處理---",
+          "---再由審查模型對各回答進行分析---",
+          "---最後整合出最好的回答---",
+          "---真係好貴好貴好貴好貴---",
+          "---真係好貴好貴好貴好貴---",
+          "---真係好貴好貴好貴好貴---",
+          "---諗清楚先好用---",
           "openrouter/fusion",
           ]
         fetch: false
@@ -40,6 +47,10 @@ endpoints:
           type: ephemeral
       models:
         default: [
+          "---真係好貴---",
+          "---真係好貴---",
+          "---真係好貴---",
+          "---諗清楚先好用---",
           "openai/gpt-6.1-sol",
           "openai/gpt-5.6-terra",
           "openai/gpt-5.3-codex",
