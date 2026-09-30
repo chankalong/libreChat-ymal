@@ -23,6 +23,9 @@ endpoints:
           type: ephemeral
       models:
         default: [
+          # LibreChat 會預選列表第一個；假 ID 放前面會令開 chat／title 直接 400。
+          # 裝飾分隔符保留喺 fusion 後面，dropdown 仍然睇到。
+          "openrouter/fusion",
           "---先由多個模型同時進行並處理---",
           "---再由審查模型對各回答進行分析---",
           "---最後整合出最好的回答---",
@@ -30,7 +33,6 @@ endpoints:
           "---真係好貴好貴好貴好貴---",
           "---真係好貴好貴好貴好貴---",
           "---諗清楚先好用---",
-          "openrouter/fusion",
           ]
         fetch: false
       titleConvo: true
@@ -493,20 +495,31 @@ transactions:
   enabled: true   # balance 開咗都會強制記；寫明更清楚
 
 
-# Attach／tool 修復：假 model ID 已刪；fusion 無 tool use → 附件改走 text，唔再要 read_file
+# Attach／tool：fusion／Perplexity 無 OpenRouter tools。附件強制 text 注入；唔依賴 read_file。
 fileConfig:
   textFallbackWithoutTools: true
+  defaultLLMDeliveryPath:
+    fallback: text
   endpoints:
     "多模型互補":
-      # openrouter/fusion 無 tools；附件直接注入文字，避免 OpenRouter 404 tool use
+      # openrouter/fusion supported_parameters=[]；附件走 text，避免 tool use 404
       defaultLLMDeliveryPath:
         fallback: text
       textFallbackWithoutTools: true
     "適合一般用途嘅AI":
+      # 含 perplexity/sonar-pro（無 tools）
+      defaultLLMDeliveryPath:
+        fallback: text
       textFallbackWithoutTools: true
     "最勁最貴最慢AI":
+      # 含 perplexity/sonar-reasoning-pro、sonar-pro-search（無 tools）
+      defaultLLMDeliveryPath:
+        fallback: text
       textFallbackWithoutTools: true
     "超平超快超廢":
+      # 含 perplexity/sonar（無 tools）
+      defaultLLMDeliveryPath:
+        fallback: text
       textFallbackWithoutTools: true
 
 interface:
@@ -546,9 +559,9 @@ interface:
     share: true
     public: true
     defaultActiveOnShare: true
-  defaultPinnedTools:
-    - skills
-    - mcp
+  # fusion／Perplexity 唔支援 tools；預設 pin skills/mcp 會令每次請求帶 read_file／MCP → OpenRouter 404。
+  # 改為唔預設 pin；需要 tool 嘅模型（Claude／GPT 等）用家可自行 pin，選擇會被記住。
+  defaultPinnedTools: []
 memory:
   disabled: false
   tokenLimit: 2000
@@ -568,6 +581,78 @@ modelSpecs:
   enforce: false
   prioritize: false
   list:
+    # no-tool OpenRouter models：關掉 skills／MCP，避免 ephemeral agent 帶 read_file
+    - name: openrouter-fusion-notools
+      label: openrouter/fusion（多模型互補）
+      softDefault: true
+      group: "多模型互補"
+      description: 多模型並行審議。此模型不支援 tools／附件 tool；skills 與 MCP 已關閉。
+      hideBadgeRow: true
+      skills: false
+      mcpServers: []
+      fileSearch: false
+      executeCode: false
+      preset:
+        endpoint: "多模型互補"
+        model: "openrouter/fusion"
+        modelLabel: 多模型互補
+        resendFiles: false
+    - name: perplexity-sonar-pro-notools
+      label: perplexity/sonar-pro
+      group: "適合一般用途嘅AI"
+      description: Perplexity 搜尋。不支援 LibreChat tools；請勿 pin skills／MCP。
+      hideBadgeRow: true
+      skills: false
+      mcpServers: []
+      fileSearch: false
+      executeCode: false
+      preset:
+        endpoint: "適合一般用途嘅AI"
+        model: "perplexity/sonar-pro"
+        modelLabel: perplexity/sonar-pro
+        resendFiles: false
+    - name: perplexity-sonar-notools
+      label: perplexity/sonar
+      group: "超平超快超廢"
+      description: Perplexity 搜尋。不支援 LibreChat tools；請勿 pin skills／MCP。
+      hideBadgeRow: true
+      skills: false
+      mcpServers: []
+      fileSearch: false
+      executeCode: false
+      preset:
+        endpoint: "超平超快超廢"
+        model: "perplexity/sonar"
+        modelLabel: perplexity/sonar
+        resendFiles: false
+    - name: perplexity-sonar-reasoning-pro-notools
+      label: perplexity/sonar-reasoning-pro
+      group: "最勁最貴最慢AI"
+      description: Perplexity reasoning。不支援 LibreChat tools；請勿 pin skills／MCP。
+      hideBadgeRow: true
+      skills: false
+      mcpServers: []
+      fileSearch: false
+      executeCode: false
+      preset:
+        endpoint: "最勁最貴最慢AI"
+        model: "perplexity/sonar-reasoning-pro"
+        modelLabel: perplexity/sonar-reasoning-pro
+        resendFiles: false
+    - name: perplexity-sonar-pro-search-notools
+      label: perplexity/sonar-pro-search
+      group: "最勁最貴最慢AI"
+      description: Perplexity search。不支援 LibreChat tools；請勿 pin skills／MCP。
+      hideBadgeRow: true
+      skills: false
+      mcpServers: []
+      fileSearch: false
+      executeCode: false
+      preset:
+        endpoint: "最勁最貴最慢AI"
+        model: "perplexity/sonar-pro-search"
+        modelLabel: perplexity/sonar-pro-search
+        resendFiles: false
     - name: ngo-writing-admin
       label: 文案及行政助手
       #softDefault: true
