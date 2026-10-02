@@ -494,6 +494,17 @@ balance:
 transactions:
   enabled: true   # balance 開咗都會強制記；寫明更清楚
 
+# Agent summarization：provider 必須係 custom endpoint 嘅 exact name。
+# Agent 會把 OpenRouter endpoint normalize 成 SDK enum "openrouter"，
+# 但我哋 endpoint name 係中文 → resolveSummarizationProvider 找不到 → warn。
+# 舊嘅 per-endpoint summarize: false 已失效；用全域 summarization 指向現有 OpenRouter endpoint。
+summarization:
+  provider: "超平超快超廢"
+  model: "anthropic/claude-haiku-4.5"
+  maxSummaryTokens: 2048
+  retainRecent:
+    turns: 2
+    tokens: 2000
 
 # Attach／tool：fusion／Perplexity 無 OpenRouter tools。附件強制 text 注入；唔依賴 read_file。
 fileConfig:
