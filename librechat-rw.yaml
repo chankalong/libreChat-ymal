@@ -298,7 +298,7 @@ endpoints:
           type: ephemeral
       models:
         default: [
-          "anthropic/claude-haiku-4.5",
+          "anthropic/claude-haiku-5.5",
           "openai/gpt-5.4-nano",
           "google/gemini-3.5-flash-lite",  
           "thinkingmachines/inkling-small",
@@ -310,16 +310,16 @@ endpoints:
           ]
         fetch: false
       titleConvo: true
-      titleModel: "anthropic/claude-haiku-4.5"
+      titleModel: "anthropic/claude-haiku-5.5"
       summarize: false
       modelDisplayLabel: "我係超平超快超廢嘅AI"
       tokenConfig:
-        anthropic/claude-haiku-4.5:
-          prompt: 1
-          completion: 5
-          context: 200000
-          cacheRead: 0.1
-          cacheWrite: 1.25
+        anthropic/claude-haiku-5.5:
+          prompt: 0.1
+          completion: 0.5
+          context: 1000000
+          cacheRead: 0.01
+          cacheWrite: 0.125
         openai/gpt-5.4-nano:
           prompt: 0.2
           completion: 1.25
@@ -500,7 +500,7 @@ transactions:
 # 舊嘅 per-endpoint summarize: false 已失效；用全域 summarization 指向現有 OpenRouter endpoint。
 summarization:
   provider: "超平超快超廢"
-  model: "anthropic/claude-haiku-4.5"
+  model: "anthropic/claude-haiku-5.5"
   maxSummaryTokens: 2048
   retainRecent:
     turns: 2
