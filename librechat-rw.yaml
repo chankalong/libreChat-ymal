@@ -207,6 +207,7 @@ endpoints:
           "anthropic/claude-sonnet-5.5",
           "google/gemini-3.8-flash",
           "thinkingmachines/inkling",
+          "meta/muse-spark-open",
           "perplexity/sonar-pro",
           "minimax/minimax-m3",
           "xiaomi/mimo-v2.5",
@@ -250,6 +251,11 @@ endpoints:
           completion: 4.05
           context: 1048576
           cacheRead: 0.17
+        meta/muse-spark-open:
+          prompt: 1.25
+          completion: 4.25
+          context: 1048576
+          cacheRead: 0.15
         perplexity/sonar-pro:
           prompt: 3
           completion: 15
