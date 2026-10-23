@@ -371,21 +371,6 @@ endpoints:
           completion: 1.2
           context: 131072
           cacheRead: 0.04
-  azureOpenAI:
-    # Endpoint-level configuration
-    titleModel: "gpt-4.1-nano"
-    groups:
-    # Group-level configuration
-    - group: "ai-imhs-westus3"
-      apiKey: "${IMAGE_GEN_OAI_API_KEY}"
-      instanceName: "ai-imhs-westus3"
-      version: "2025-04-01-preview"
-      # Model-level configuration
-      models:
-        gpt-4.1-nano:
-          deploymentName: gpt-4.1-nano
-        gpt-4.1:
-          deploymentName: gpt-4.1
 ocr:
   mistralModel: "${AZURE_MISTRAL_OCR_MODEL}"              # Should match your Azure deployment name
   apiKey: "${AZURE_MISTRAL_OCR_API_KEY}"                 # Reference to your Azure API key in .env
