@@ -136,6 +136,7 @@ endpoints:
           "z-ai/glm-5-turbo",
           "deepseek/deepseek-v4-pro",
           "moonshotai/kimi-k3",
+          "moonshotai/kimi-k3.1-pro",
           "moonshotai/kimi-k2.7-code",
           "moonshotai/kimi-k2.6",
           "xiaomi/mimo-v2.5-pro",
@@ -167,6 +168,11 @@ endpoints:
           completion: 9.38
           context: 1048576
           cacheRead: 0.1943
+        moonshotai/kimi-k3.1-pro:
+          prompt: 2
+          completion: 10
+          context: 1048576
+          cacheRead: 0.2
         moonshotai/kimi-k2.7-code:
           prompt: 0.7062
           completion: 3.21
@@ -313,6 +319,7 @@ endpoints:
           "perplexity/sonar",
           "deepseek/deepseek-v4.1-flash",
           "deepseek/deepseek-v4.1-flash-1017",
+          "minimax/minimax-m3.1-flash",
           "meta/muse-glimmer-30b"
           ]
         fetch: false
@@ -366,6 +373,11 @@ endpoints:
           completion: 1.2
           context: 1048576
           cacheRead: 0.006
+        minimax/minimax-m3.1-flash:
+          prompt: 0.15
+          completion: 0.6
+          context: 1048576
+          cacheRead: 0.015
         meta/muse-glimmer-30b:
           prompt: 0.3
           completion: 1.2
