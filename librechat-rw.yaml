@@ -463,14 +463,14 @@ skillSync:
           - surveyjs-json
         skillDiscoveryDepth: 2
         token: '${GITHUB_SKILLS_TOKEN}'
-# --- 用量上限：每人約 US$5／月 ---
+# --- 用量上限：每人約 US$2／週 ---
 balance:
   enabled: true
-  startBalance: 5000000
+  startBalance: 2000000
   autoRefillEnabled: true
   refillIntervalValue: 1
-  refillIntervalUnit: months
-  refillAmount: 5000000
+  refillIntervalUnit: weeks
+  refillAmount: 2000000
 
 transactions:
   enabled: true   # balance 開咗都會強制記；寫明更清楚
