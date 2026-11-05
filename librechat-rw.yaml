@@ -147,6 +147,7 @@ endpoints:
           "moonshotai/kimi-k2.7-code",
           "moonshotai/kimi-k2.6",
           "xiaomi/mimo-v2.5-pro",
+          "tencent/hy4",
           "tencent/hy4-preview",
           "qwen/qwen3.8-27b"
           ]
@@ -195,6 +196,11 @@ endpoints:
           completion: 0.87
           context: 1050000
           cacheRead: 0.0036
+        tencent/hy4:
+          prompt: 0.417
+          completion: 1.2505
+          context: 1048576
+          cacheRead: 0.021
         tencent/hy4-preview:
           prompt: 0.834
           completion: 2.501
