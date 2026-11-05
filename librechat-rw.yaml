@@ -148,7 +148,6 @@ endpoints:
           "moonshotai/kimi-k2.6",
           "xiaomi/mimo-v2.5-pro",
           "tencent/hy4",
-          "tencent/hy4-preview",
           "qwen/qwen3.8-27b"
           ]
         fetch: false
@@ -201,11 +200,6 @@ endpoints:
           completion: 1.2505
           context: 1048576
           cacheRead: 0.021
-        tencent/hy4-preview:
-          prompt: 0.834
-          completion: 2.501
-          context: 1048576
-          cacheRead: 0.042
         qwen/qwen3.8-27b:
           prompt: 0.2
           completion: 2.5
@@ -232,7 +226,6 @@ endpoints:
           "xiaomi/mimo-v2.5",
           "qwen/qwen3.6-27b",
           "bytedance-seed/seed-2-1-turbo",
-          "tencent/hy3",
           "z-ai/glm-5.3-flash",
           "z-ai/glm-5.3-flashx"
           ]
@@ -298,11 +291,6 @@ endpoints:
           prompt: 0.5
           completion: 2.5
           context: 262144
-        tencent/hy3:
-          prompt: 0.132
-          completion: 0.528
-          context: 262144
-          cacheRead: 0.033
         z-ai/glm-5.3-flash:
           prompt: 0.09
           completion: 0.3
