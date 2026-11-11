@@ -59,6 +59,7 @@ endpoints:
           "openai/gpt-5.3-codex",
           "anthropic/claude-opus-5.5",
           "google/gemini-4-argon",
+          "google/gemini-4-carbon",
           "x-ai/grok-4.7",
           "x-ai/grok-build-0.1",
           "x-ai/grok-4.20-multi-agent",
@@ -101,6 +102,12 @@ endpoints:
           cacheRead: 0.2
           cacheWrite: 5
         google/gemini-4-argon:
+          prompt: 2
+          completion: 10
+          context: 1048576
+          cacheRead: 0.1
+          cacheWrite: 0.1875
+        google/gemini-4-carbon:
           prompt: 2
           completion: 10
           context: 1048576
@@ -321,7 +328,8 @@ endpoints:
           "deepseek/deepseek-v4.1-flash",
           "deepseek/deepseek-v4.1-flash-1017",
           "minimax/minimax-m3.1-flash",
-          "meta/muse-glimmer-30b"
+          "meta/muse-glimmer-30b",
+          "meta/muse-ember"
           ]
         fetch: false
       titleConvo: true
@@ -384,6 +392,12 @@ endpoints:
           completion: 1.2
           context: 131072
           cacheRead: 0.04
+        meta/muse-ember:
+          prompt: 0.1
+          completion: 0.5
+          context: 1048576
+          cacheRead: 0.004
+          cacheWrite: 0.125
 ocr:
   mistralModel: "${AZURE_MISTRAL_OCR_MODEL}"              # Should match your Azure deployment name
   apiKey: "${AZURE_MISTRAL_OCR_API_KEY}"                 # Reference to your Azure API key in .env
