@@ -60,6 +60,7 @@ endpoints:
           "anthropic/claude-opus-5.5",
           "google/gemini-4-argon",
           "google/gemini-4-carbon",
+          "google/gemini-4-hydrogen",
           "x-ai/grok-4.7",
           "x-ai/grok-build-0.1",
           "x-ai/grok-4.20-multi-agent",
@@ -113,6 +114,12 @@ endpoints:
           context: 1048576
           cacheRead: 0.1
           cacheWrite: 0.1875
+        google/gemini-4-hydrogen:
+          prompt: 1.5
+          completion: 7.5
+          context: 1048576
+          cacheRead: 0.075
+          cacheWrite: 0.0833
         x-ai/grok-4.7:
           prompt: 1.6
           completion: 4.8
