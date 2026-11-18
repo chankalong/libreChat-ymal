@@ -1,4 +1,4 @@
-version: 1.3.14
+version: 1.3.19
 cache: true
 fileStrategy: "azure_blob"
 registration:
@@ -331,28 +331,41 @@ ocr:
   apiKey: "${AZURE_MISTRAL_OCR_API_KEY}"                 # Reference to your Azure API key in .env
   baseURL: "${AZURE_MISTRAL_OCR_URL}"  # Your Azure endpoint
   strategy: "azure_mistral_ocr"                          # Use Azure strategy
-messageFilter:
-  pii:
-    starterPatterns:
-      - sk_prefix
-      - bearer_header
-      - api_key_header
-    customPatterns:
-      - id: anthropic_api_key
-        label: Anthropic API key
-        regex: 'sk-ant-[A-Za-z0-9_-]{20,}'
-      #- id: email
-      #  label: Email address
-      #  regex: '\b[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,63}\b'
-      #- id: hk_phone
-      #  label: Hong Kong phone number
-      #  regex: '(?:^|[^0-9A-Za-z])(?:[+]852[ -]*|852[ -]*)?[2-9][0-9]{3}[ -]?[0-9]{4}(?:$|[^0-9A-Za-z])'
-      - id: credit_card
-        label: Credit card number
-        regex: '\b(?:[0-9][ -]?){12,18}[0-9]\b'
-      - id: hkid
-        label: Hong Kong Identity Card
-        regex: '(?:[A-Za-z][ ]*){1,2}(?:[0-9][ ]*){6}(?:[(][ ]*[0-9Aa][ ]*[)]|[0-9Aa])'       #'\(?\s*[A-Za-z]\s*(?:\d\s*){6}\s*\)?(?:\s*\(?\s*[0-9Aa]\s*\)?)?'
+# Replaces legacy messageFilter. action redact applies only to fresh text-only
+# interactive Agent chats with a clientRequestId; other endpoints still block.
+# redact requires a valid CREDS_KEY.
+filters:
+  messages:
+    unattributedAssistantContent: model_output
+    pii:
+      action: redact
+      maxCharacters: 65536
+      maxMatches: 256
+      starterPatterns:
+        - sk_prefix
+        - bearer_header
+        - api_key_header
+      customPatterns:
+        - id: anthropic_api_key
+          label: Anthropic API key
+          regex: 'sk-ant-[A-Za-z0-9_-]{20,}'
+          category: credential
+        # - id: email
+        #   label: Email address
+        #   regex: '\b[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,63}\b'
+        #   category: email
+        # - id: hk_phone
+        #   label: Hong Kong phone number
+        #   regex: '(?:^|[^0-9A-Za-z])(?:[+]852[ -]*|852[ -]*)?[2-9][0-9]{3}[ -]?[0-9]{4}(?:$|[^0-9A-Za-z])'
+        #   category: phone
+        - id: credit_card
+          label: Credit card number
+          regex: '\b(?:[0-9][ -]?){12,18}[0-9]\b'
+          category: custom
+        - id: hkid
+          label: Hong Kong Identity Card
+          regex: '(?:[A-Za-z][ ]*){1,2}(?:[0-9][ ]*){6}(?:[(][ ]*[0-9Aa][ ]*[)]|[0-9Aa])'       #'\(?\s*[A-Za-z]\s*(?:\d\s*){6}\s*\)?(?:\s*\(?\s*[0-9Aa]\s*\)?)?'
+          category: custom
 skillSync:
   github:
     enabled: true
