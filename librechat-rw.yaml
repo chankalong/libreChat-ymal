@@ -146,13 +146,11 @@ endpoints:
           type: ephemeral
       models:
         default: [
-          "z-ai/glm-5.3",
-          "z-ai/glm-5-turbo",
-          "deepseek/deepseek-v4-pro",
-          "moonshotai/kimi-k3",
           "moonshotai/kimi-k3.1-pro",
+          "z-ai/glm-5-turbo",
+          "z-ai/glm-5.3",
+          "deepseek/deepseek-v4-pro",
           "moonshotai/kimi-k2.7-code",
-          "moonshotai/kimi-k2.6",
           "xiaomi/mimo-v2.5-pro",
           "tencent/hy4",
           "qwen/qwen3.8-27b"
@@ -162,41 +160,31 @@ endpoints:
       summarize: false
       modelDisplayLabel: "我係國產頂級AI"
       tokenConfig:
-        z-ai/glm-5.3:
-          prompt: 0.91
-          completion: 2.86
-          context: 1310720
-          cacheRead: 0.169
-        z-ai/glm-5-turbo:
-          prompt: 1.2
-          completion: 4
-          context: 202752
-          cacheRead: 0.24
-        deepseek/deepseek-v4-pro:
-          prompt: 0.95526
-          completion: 1.91052
-          context: 1048576
-          cacheRead: 0.079605
-        moonshotai/kimi-k3:
-          prompt: 1.675
-          completion: 9.38
-          context: 1048576
-          cacheRead: 0.1943
         moonshotai/kimi-k3.1-pro:
           prompt: 2
           completion: 10
           context: 1048576
           cacheRead: 0.2
+        z-ai/glm-5-turbo:
+          prompt: 1.2
+          completion: 4
+          context: 202752
+          cacheRead: 0.24
+        z-ai/glm-5.3:
+          prompt: 0.91
+          completion: 2.86
+          context: 1310720
+          cacheRead: 0.169
+        deepseek/deepseek-v4-pro:
+          prompt: 0.95526
+          completion: 1.91052
+          context: 1048576
+          cacheRead: 0.079605
         moonshotai/kimi-k2.7-code:
           prompt: 0.7062
           completion: 3.21
           context: 262144
           cacheRead: 0.18
-        moonshotai/kimi-k2.6:
-          prompt: 0.95
-          completion: 4
-          context: 262144
-          cacheRead: 0.16
         xiaomi/mimo-v2.5-pro:
           prompt: 0.435
           completion: 0.87
@@ -223,18 +211,12 @@ endpoints:
       models:
         default: [
           "openai/gpt-6.1-terra",
-          "openai/gpt-5.4-mini",
           "anthropic/claude-sonnet-5.5",
-          "google/gemini-3.8-flash",
           "thinkingmachines/inkling",
           "meta/muse-spark-open",
-          "perplexity/sonar-pro",
-          "minimax/minimax-m3",
-          "xiaomi/mimo-v2.5",
-          "qwen/qwen3.6-27b",
           "bytedance-seed/seed-2-1-turbo",
-          "z-ai/glm-5.3-flash",
-          "z-ai/glm-5.3-flashx"
+          "z-ai/glm-5.3-flashx",
+          "minimax/minimax-m3"
           ]
         fetch: false
       titleConvo: true
@@ -248,23 +230,12 @@ endpoints:
           context: 1050000
           cacheRead: 0.05
           cacheWrite: 1.25
-        openai/gpt-5.4-mini:
-          prompt: 0.75
-          completion: 4.5
-          context: 400000
-          cacheRead: 0.075
         anthropic/claude-sonnet-5.5:
           prompt: 2
           completion: 10
           context: 1000000
           cacheRead: 0.2
           cacheWrite: 2.5
-        google/gemini-3.8-flash:
-          prompt: 0.75
-          completion: 3.75
-          context: 1048576
-          cacheRead: 0.075
-          cacheWrite: 0.041667
         thinkingmachines/inkling:
           prompt: 1
           completion: 4.05
@@ -275,39 +246,20 @@ endpoints:
           completion: 4.25
           context: 1048576
           cacheRead: 0.15
-        perplexity/sonar-pro:
-          prompt: 3
-          completion: 15
-          context: 200000
-        minimax/minimax-m3:
-          prompt: 0.3
-          completion: 1.2
-          context: 1048576
-          cacheRead: 0.06
-        xiaomi/mimo-v2.5:
-          prompt: 0.14
-          completion: 0.28
-          context: 1050000
-          cacheRead: 0.0028
-        qwen/qwen3.6-27b:
-          prompt: 0.3
-          completion: 2
-          context: 262144
-          cacheRead: 0.03
         bytedance-seed/seed-2-1-turbo:
           prompt: 0.5
           completion: 2.5
           context: 262144
-        z-ai/glm-5.3-flash:
-          prompt: 0.09
-          completion: 0.3
-          context: 1310720
-          cacheRead: 0.018
         z-ai/glm-5.3-flashx:
           prompt: 0.37
           completion: 1.25
           context: 1048576
           cacheRead: 0.075
+        minimax/minimax-m3:
+          prompt: 0.3
+          completion: 1.2
+          context: 1048576
+          cacheRead: 0.06
     - name: "超平超快超廢"
       apiKey: "${OPENROUTER_KEY}"
       baseURL: "https://openrouter.ai/api/v1"
@@ -320,17 +272,16 @@ endpoints:
         default: [
           "openai/gpt-6-luna",
           "anthropic/claude-haiku-5.5",
-          "openai/gpt-5.4-nano",
           "google/gemini-3.5-flash-lite",  
           "thinkingmachines/inkling-small",
-          "z-ai/glm-4.7-flash",
-          "qwen/qwen3.6-35b-a3b",
           "perplexity/sonar",
-          "deepseek/deepseek-v4.1-flash",
-          "deepseek/deepseek-v4.1-flash-1017",
-          "minimax/minimax-m3.1-flash",
           "meta/muse-glimmer-30b",
-          "meta/muse-ember"
+          "meta/muse-ember",
+          "z-ai/glm-5.3-flash",
+          "xiaomi/mimo-v2.5",
+          "qwen/qwen3.6-35b-a3b",
+          "minimax/minimax-m3.1-flash",
+          "deepseek/deepseek-v4.1-flash"
           ]
         fetch: false
       titleConvo: true
@@ -350,11 +301,6 @@ endpoints:
           context: 1000000
           cacheRead: 0.01
           cacheWrite: 0.125
-        openai/gpt-5.4-nano:
-          prompt: 0.2
-          completion: 1.25
-          context: 400000
-          cacheRead: 0.02
         google/gemini-3.5-flash-lite:
           prompt: 0.3
           completion: 2.5
@@ -366,34 +312,10 @@ endpoints:
           completion: 1.2
           context: 1048576
           cacheRead: 0.1
-        z-ai/glm-4.7-flash:
-          prompt: 0.0605
-          completion: 0.4
-          context: 200000
-        qwen/qwen3.6-35b-a3b:
-          prompt: 0.15
-          completion: 1
-          context: 262144
-          cacheRead: 0.05
         perplexity/sonar:
           prompt: 1
           completion: 1
           context: 127072
-        deepseek/deepseek-v4.1-flash:
-          prompt: 0.3
-          completion: 1.2
-          context: 1048576
-          cacheRead: 0.006
-        deepseek/deepseek-v4.1-flash-1017:
-          prompt: 0.3
-          completion: 1.2
-          context: 1048576
-          cacheRead: 0.006
-        minimax/minimax-m3.1-flash:
-          prompt: 0.15
-          completion: 0.6
-          context: 1048576
-          cacheRead: 0.015
         meta/muse-glimmer-30b:
           prompt: 0.3
           completion: 1.2
@@ -405,6 +327,31 @@ endpoints:
           context: 1048576
           cacheRead: 0.004
           cacheWrite: 0.125
+        z-ai/glm-5.3-flash:
+          prompt: 0.09
+          completion: 0.3
+          context: 1310720
+          cacheRead: 0.018
+        xiaomi/mimo-v2.5:
+          prompt: 0.14
+          completion: 0.28
+          context: 1050000
+          cacheRead: 0.0028
+        qwen/qwen3.6-35b-a3b:
+          prompt: 0.15
+          completion: 1
+          context: 262144
+          cacheRead: 0.05
+        minimax/minimax-m3.1-flash:
+          prompt: 0.15
+          completion: 0.6
+          context: 1048576
+          cacheRead: 0.015
+        deepseek/deepseek-v4.1-flash:
+          prompt: 0.3
+          completion: 1.2
+          context: 1048576
+          cacheRead: 0.006
 ocr:
   mistralModel: "${AZURE_MISTRAL_OCR_MODEL}"              # Should match your Azure deployment name
   apiKey: "${AZURE_MISTRAL_OCR_API_KEY}"                 # Reference to your Azure API key in .env
@@ -513,11 +460,6 @@ fileConfig:
       defaultLLMDeliveryPath:
         fallback: text
       textFallbackWithoutTools: true
-    "適合一般用途嘅AI":
-      # 含 perplexity/sonar-pro（無 tools）
-      defaultLLMDeliveryPath:
-        fallback: text
-      textFallbackWithoutTools: true
     "最勁最貴最慢AI":
       # 含 perplexity/sonar-reasoning-pro、sonar-pro-search（無 tools）
       defaultLLMDeliveryPath:
@@ -579,7 +521,7 @@ memory:
   agent:
     enabled: true
     provider: '適合一般用途嘅AI'
-    model: 'google/gemini-3.8-flash'
+    model: 'openai/gpt-6.1-terra'
     instructions: 'You are a helpful assistant that remembers user preferences and context.'
     model_parameters:
       temperature: 0.7
@@ -603,20 +545,6 @@ modelSpecs:
         endpoint: "多模型互補"
         model: "openrouter/fusion"
         modelLabel: 多模型互補
-        resendFiles: false
-    - name: perplexity-sonar-pro-notools
-      label: perplexity/sonar-pro
-      group: "適合一般用途嘅AI"
-      description: Perplexity 搜尋。不支援 LibreChat tools；請勿 pin skills／MCP。
-      hideBadgeRow: true
-      skills: false
-      mcpServers: []
-      fileSearch: false
-      executeCode: false
-      preset:
-        endpoint: "適合一般用途嘅AI"
-        model: "perplexity/sonar-pro"
-        modelLabel: perplexity/sonar-pro
         resendFiles: false
     - name: perplexity-sonar-notools
       label: perplexity/sonar
@@ -717,7 +645,7 @@ modelSpecs:
       preset:
         endpoint: 'agents'
         agent_id: 'agent_J6YDB0UZ0FdB4lrPZbb5T'
-        model: "google/gemini-3.8-flash"
+        model: "openai/gpt-6.1-terra"
         modelLabel: 情緒教育活動設計助手
         greeting: |
           我可以協助設計非臨床的情緒教育活動及公開宣傳草稿。
@@ -749,7 +677,7 @@ modelSpecs:
         - 將以下訊息縮短為適合社交媒體發布的版本
       preset:
         endpoint: "適合一般用途嘅AI"
-        model: "openai/gpt-5.4-mini"
+        model: "openai/gpt-6.1-terra"
         modelLabel: 清晰文字及翻譯助手
         greeting: |
           我可以協助改寫或翻譯公開內容，令文字自然、清晰及適合香港讀者。
