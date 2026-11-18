@@ -13,32 +13,6 @@ endpoints:
     # OpenRouter.ai
     # Model list: https://openrouter.ai/models
     # Script to fetch models: https://github.com/LibreChat-AI/librechat-config-yaml/blob/main/scripts/openrouter.py
-    - name: "多模型互補"
-      apiKey: "${OPENROUTER_KEY}"
-      baseURL: "https://openrouter.ai/api/v1"
-      headers:
-        X-Session-Id: '{{LIBRECHAT_BODY_CONVERSATIONID}}'
-      addParams:
-        cache_control:
-          type: ephemeral
-      models:
-        default: [
-          # LibreChat 會預選列表第一個；假 ID 放前面會令開 chat／title 直接 400。
-          # 裝飾分隔符保留喺 fusion 後面，dropdown 仍然睇到。
-          "openrouter/fusion",
-          "---先由多個模型同時進行並處理---",
-          "---再由審查模型對各回答進行分析---",
-          "---最後整合出最好的回答---",
-          "---真係好貴好貴好貴好貴---",
-          "---真係好貴好貴好貴好貴---",
-          "---真係好貴好貴好貴好貴---",
-          "---諗清楚先好用---",
-          ]
-        fetch: false
-      titleConvo: true
-      titleModel: "openrouter/fusion"
-      summarize: false
-      modelDisplayLabel: "多模型互補"
     - name: "最勁最貴最慢AI"
       apiKey: "${OPENROUTER_KEY}"
       baseURL: "https://openrouter.ai/api/v1"
@@ -449,17 +423,12 @@ summarization:
     turns: 2
     tokens: 2000
 
-# Attach／tool：fusion／Perplexity 無 OpenRouter tools。附件強制 text 注入；唔依賴 read_file。
+# Attach／tool：Perplexity 無 OpenRouter tools。附件強制 text 注入；唔依賴 read_file。
 fileConfig:
   textFallbackWithoutTools: true
   defaultLLMDeliveryPath:
     fallback: text
   endpoints:
-    "多模型互補":
-      # openrouter/fusion supported_parameters=[]；附件走 text，避免 tool use 404
-      defaultLLMDeliveryPath:
-        fallback: text
-      textFallbackWithoutTools: true
     "最勁最貴最慢AI":
       # 含 perplexity/sonar-reasoning-pro、sonar-pro-search（無 tools）
       defaultLLMDeliveryPath:
@@ -508,7 +477,7 @@ interface:
     share: true
     public: true
     defaultActiveOnShare: true
-  # fusion／Perplexity 唔支援 tools；預設 pin skills/mcp 會令每次請求帶 read_file／MCP → OpenRouter 404。
+  # Perplexity 唔支援 tools；預設 pin skills/mcp 會令每次請求帶 read_file／MCP → OpenRouter 404。
   # 改為唔預設 pin；需要 tool 嘅模型（Claude／GPT 等）用家可自行 pin，選擇會被記住。
   defaultPinnedTools: []
 memory:
@@ -531,21 +500,6 @@ modelSpecs:
   prioritize: false
   list:
     # no-tool OpenRouter models：關掉 skills／MCP，避免 ephemeral agent 帶 read_file
-    - name: openrouter-fusion-notools
-      label: openrouter/fusion（多模型互補）
-      softDefault: true
-      group: "多模型互補"
-      description: 多模型並行審議。此模型不支援 tools／附件 tool；skills 與 MCP 已關閉。
-      hideBadgeRow: true
-      skills: false
-      mcpServers: []
-      fileSearch: false
-      executeCode: false
-      preset:
-        endpoint: "多模型互補"
-        model: "openrouter/fusion"
-        modelLabel: 多模型互補
-        resendFiles: false
     - name: perplexity-sonar-notools
       label: perplexity/sonar
       group: "超平超快超廢"
