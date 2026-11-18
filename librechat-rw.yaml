@@ -55,8 +55,6 @@ endpoints:
           "---諗清楚先好用---",
           "openai/gpt-6.2-astra",
           "openai/gpt-6.2-sol",
-          "openai/gpt-6.1-sol",
-          "openai/gpt-6.1-terra",
           "openai/gpt-5.6-terra",
           "openai/gpt-5.3-codex",
           "anthropic/claude-opus-5.5",
@@ -71,7 +69,7 @@ endpoints:
           ]
         fetch: false
       titleConvo: true
-      titleModel: "openai/gpt-6.1-sol"
+      titleModel: "openai/gpt-6.2-sol"
       summarize: false
       modelDisplayLabel: "我係最勁最貴最慢嘅AI"
       tokenConfig:
@@ -87,18 +85,6 @@ endpoints:
           context: 1050000
           cacheRead: 0.1
           cacheWrite: 2.5
-        openai/gpt-6.1-sol:
-          prompt: 2
-          completion: 10
-          context: 1050000
-          cacheRead: 0.1
-          cacheWrite: 2.5
-        openai/gpt-6.1-terra:
-          prompt: 1
-          completion: 5
-          context: 1050000
-          cacheRead: 0.05
-          cacheWrite: 1.25
         openai/gpt-5.6-terra:
           prompt: 2
           completion: 12
