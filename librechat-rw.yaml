@@ -350,6 +350,22 @@ filters:
           label: Anthropic API key
           regex: 'sk-ant-[A-Za-z0-9_-]{20,}'
           category: credential
+        - id: google_api_key
+          label: Google API key
+          regex: 'AIza[0-9A-Za-z_-]{35}'
+          category: credential
+        - id: aws_access_key_id
+          label: AWS access key ID
+          regex: 'AKIA[0-9A-Z]{16}'
+          category: credential
+        - id: github_personal_token
+          label: GitHub personal access token
+          regex: 'ghp_[A-Za-z0-9]{36}'
+          category: credential
+        - id: github_fine_grained_token
+          label: GitHub fine-grained personal access token
+          regex: 'github_pat_[A-Za-z0-9]{22}_[A-Za-z0-9]{59}'
+          category: credential
         # - id: email
         #   label: Email address
         #   regex: '\b[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,63}\b'
@@ -381,6 +397,116 @@ filters:
         - id: anthropic_api_key
           label: Anthropic API key
           regex: 'sk-ant-[A-Za-z0-9_-]{20,}'
+          category: credential
+        - id: google_api_key
+          label: Google API key
+          regex: 'AIza[0-9A-Za-z_-]{35}'
+          category: credential
+        - id: aws_access_key_id
+          label: AWS access key ID
+          regex: 'AKIA[0-9A-Z]{16}'
+          category: credential
+        - id: github_personal_token
+          label: GitHub personal access token
+          regex: 'ghp_[A-Za-z0-9]{36}'
+          category: credential
+        - id: github_fine_grained_token
+          label: GitHub fine-grained personal access token
+          regex: 'github_pat_[A-Za-z0-9]{22}_[A-Za-z0-9]{59}'
+          category: credential
+        # - id: email
+        #   label: Email address
+        #   regex: '\b[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,63}\b'
+        #   category: email
+        # - id: hk_phone
+        #   label: Hong Kong phone number
+        #   regex: '(?:^|[^0-9A-Za-z])(?:[+]852[ -]*|852[ -]*)?[2-9][0-9]{3}[ -]?[0-9]{4}(?:$|[^0-9A-Za-z])'
+        #   category: phone
+        - id: credit_card
+          label: Credit card number
+          regex: '\b(?:[0-9][ -]?){12,18}[0-9]\b'
+          category: custom
+        - id: hkid
+          label: Hong Kong Identity Card
+          regex: '(?:[A-Za-z][ ]*){1,2}(?:[0-9][ ]*){6}(?:[(][ ]*[0-9Aa][ ]*[)]|[0-9Aa])'       #'\(?\s*[A-Za-z]\s*(?:\d\s*){6}\s*\)?(?:\s*\(?\s*[0-9Aa]\s*\)?)?'
+          category: custom
+  # Memories and agent instructions use block, not redact. redact only transforms
+  # fresh text-only interactive Agent chats with a clientRequestId; other sources
+  # still block. A rejected background memory update can be skipped while the main
+  # chat response continues. Enabling this does not rewrite stored memories or
+  # agent instructions; it applies when they are submitted or reused.
+  memories:
+    pii:
+      action: block
+      fields: [key, value, summary]
+      starterPatterns:
+        - sk_prefix
+        - bearer_header
+        - api_key_header
+      customPatterns:
+        - id: anthropic_api_key
+          label: Anthropic API key
+          regex: 'sk-ant-[A-Za-z0-9_-]{20,}'
+          category: credential
+        - id: google_api_key
+          label: Google API key
+          regex: 'AIza[0-9A-Za-z_-]{35}'
+          category: credential
+        - id: aws_access_key_id
+          label: AWS access key ID
+          regex: 'AKIA[0-9A-Z]{16}'
+          category: credential
+        - id: github_personal_token
+          label: GitHub personal access token
+          regex: 'ghp_[A-Za-z0-9]{36}'
+          category: credential
+        - id: github_fine_grained_token
+          label: GitHub fine-grained personal access token
+          regex: 'github_pat_[A-Za-z0-9]{22}_[A-Za-z0-9]{59}'
+          category: credential
+        # - id: email
+        #   label: Email address
+        #   regex: '\b[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,63}\b'
+        #   category: email
+        # - id: hk_phone
+        #   label: Hong Kong phone number
+        #   regex: '(?:^|[^0-9A-Za-z])(?:[+]852[ -]*|852[ -]*)?[2-9][0-9]{3}[ -]?[0-9]{4}(?:$|[^0-9A-Za-z])'
+        #   category: phone
+        - id: credit_card
+          label: Credit card number
+          regex: '\b(?:[0-9][ -]?){12,18}[0-9]\b'
+          category: custom
+        - id: hkid
+          label: Hong Kong Identity Card
+          regex: '(?:[A-Za-z][ ]*){1,2}(?:[0-9][ ]*){6}(?:[(][ ]*[0-9Aa][ ]*[)]|[0-9Aa])'       #'\(?\s*[A-Za-z]\s*(?:\d\s*){6}\s*\)?(?:\s*\(?\s*[0-9Aa]\s*\)?)?'
+          category: custom
+  agentInstructions:
+    pii:
+      action: block
+      starterPatterns:
+        - sk_prefix
+        - bearer_header
+        - api_key_header
+      customPatterns:
+        - id: anthropic_api_key
+          label: Anthropic API key
+          regex: 'sk-ant-[A-Za-z0-9_-]{20,}'
+          category: credential
+        - id: google_api_key
+          label: Google API key
+          regex: 'AIza[0-9A-Za-z_-]{35}'
+          category: credential
+        - id: aws_access_key_id
+          label: AWS access key ID
+          regex: 'AKIA[0-9A-Z]{16}'
+          category: credential
+        - id: github_personal_token
+          label: GitHub personal access token
+          regex: 'ghp_[A-Za-z0-9]{36}'
+          category: credential
+        - id: github_fine_grained_token
+          label: GitHub fine-grained personal access token
+          regex: 'github_pat_[A-Za-z0-9]{22}_[A-Za-z0-9]{59}'
           category: credential
         # - id: email
         #   label: Email address
