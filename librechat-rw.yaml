@@ -366,6 +366,38 @@ filters:
           label: Hong Kong Identity Card
           regex: '(?:[A-Za-z][ ]*){1,2}(?:[0-9][ ]*){6}(?:[(][ ]*[0-9Aa][ ]*[)]|[0-9Aa])'       #'\(?\s*[A-Za-z]\s*(?:\d\s*){6}\s*\)?(?:\s*\(?\s*[0-9Aa]\s*\)?)?'
           category: custom
+  # Files do not support redact. uninspectable allow keeps opaque, oversized,
+  # and older uploads from being rejected.
+  files:
+    pii:
+      action: block
+      fields: [name, content, extracted_text, transcript]
+      uninspectable: allow
+      starterPatterns:
+        - sk_prefix
+        - bearer_header
+        - api_key_header
+      customPatterns:
+        - id: anthropic_api_key
+          label: Anthropic API key
+          regex: 'sk-ant-[A-Za-z0-9_-]{20,}'
+          category: credential
+        # - id: email
+        #   label: Email address
+        #   regex: '\b[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,63}\b'
+        #   category: email
+        # - id: hk_phone
+        #   label: Hong Kong phone number
+        #   regex: '(?:^|[^0-9A-Za-z])(?:[+]852[ -]*|852[ -]*)?[2-9][0-9]{3}[ -]?[0-9]{4}(?:$|[^0-9A-Za-z])'
+        #   category: phone
+        - id: credit_card
+          label: Credit card number
+          regex: '\b(?:[0-9][ -]?){12,18}[0-9]\b'
+          category: custom
+        - id: hkid
+          label: Hong Kong Identity Card
+          regex: '(?:[A-Za-z][ ]*){1,2}(?:[0-9][ ]*){6}(?:[(][ ]*[0-9Aa][ ]*[)]|[0-9Aa])'       #'\(?\s*[A-Za-z]\s*(?:\d\s*){6}\s*\)?(?:\s*\(?\s*[0-9Aa]\s*\)?)?'
+          category: custom
 skillSync:
   github:
     enabled: true
