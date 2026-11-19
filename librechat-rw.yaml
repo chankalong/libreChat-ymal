@@ -179,6 +179,7 @@ endpoints:
         default: [
           "openai/gpt-6.1-terra",
           "google/gemini-4-hydrogen",
+          "google/gemini-4-neon",
           "anthropic/claude-sonnet-5.5",
           "thinkingmachines/inkling",
           "meta/muse-spark-open",
@@ -203,6 +204,12 @@ endpoints:
           completion: 7.5
           context: 1048576
           cacheRead: 0.075
+          cacheWrite: 0.0833
+        google/gemini-4-neon:
+          prompt: 3
+          completion: 15
+          context: 1048576
+          cacheRead: 0.15
           cacheWrite: 0.0833
         anthropic/claude-sonnet-5.5:
           prompt: 2
