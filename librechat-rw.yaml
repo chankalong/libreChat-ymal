@@ -254,7 +254,7 @@ endpoints:
           "openai/gpt-6-luna",
           "anthropic/claude-haiku-5.5",
           "google/gemini-3.5-flash-lite",  
-          "thinkingmachines/inkling-small",
+          "thinkingmachines/inkling-2-small",
           "thinkingmachines/inkling-2-mini",
           "perplexity/sonar",
           "meta/muse-glimmer-30b",
@@ -289,11 +289,11 @@ endpoints:
           context: 1048576
           cacheRead: 0.03
           cacheWrite: 0.083333
-        thinkingmachines/inkling-small:
-          prompt: 0.45
-          completion: 1.2
+        thinkingmachines/inkling-2-small:
+          prompt: 0.3
+          completion: 1
           context: 1048576
-          cacheRead: 0.1
+          cacheRead: 0.03
         thinkingmachines/inkling-2-mini:
           prompt: 0.075
           completion: 0.3
