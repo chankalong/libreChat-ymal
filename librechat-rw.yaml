@@ -255,6 +255,7 @@ endpoints:
           "anthropic/claude-haiku-5.5",
           "google/gemini-3.5-flash-lite",  
           "thinkingmachines/inkling-small",
+          "thinkingmachines/inkling-2-mini",
           "perplexity/sonar",
           "meta/muse-glimmer-30b",
           "meta/muse-ember",
@@ -293,6 +294,11 @@ endpoints:
           completion: 1.2
           context: 1048576
           cacheRead: 0.1
+        thinkingmachines/inkling-2-mini:
+          prompt: 0.075
+          completion: 0.3
+          context: 1048576
+          cacheRead: 0.015
         perplexity/sonar:
           prompt: 1
           completion: 1
