@@ -261,6 +261,7 @@ endpoints:
           "meta/muse-ember",
           "z-ai/glm-5.3-flash",
           "xiaomi/mimo-v2.5",
+          "xiaomi/mimo-v2.6-flash-mopd",
           "qwen/qwen3.6-35b-a3b",
           "minimax/minimax-m3.1-flash",
           "deepseek/deepseek-v4.1-flash"
@@ -324,6 +325,11 @@ endpoints:
           completion: 0.28
           context: 1050000
           cacheRead: 0.0028
+        xiaomi/mimo-v2.6-flash-mopd:
+          prompt: 0.5
+          completion: 1
+          context: 1048576
+          cacheRead: 0.05
         qwen/qwen3.6-35b-a3b:
           prompt: 0.15
           completion: 1
